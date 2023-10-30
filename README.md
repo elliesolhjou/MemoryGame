@@ -40,7 +40,7 @@ Pseudocode:
     . runGame()  
     . handleBtnClick()  
     . firstCardDisplay() -> setTimer() to Be Incorporated
-    . shuffle() -> Shuffle Images Randomly
+    . shuffle() -> is the helper function to Shuffle Images Randomly
     . timer() -> let or function?
     . hideCard()/showCard() -> Maybe a css Animation instead
     . compareSelection()  
