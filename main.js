@@ -64,7 +64,7 @@ function handleBtnClick(e) {
                 score=parseInt(scoreStatEl.innerText)++;
                 state.score= score // to update state object for runGame()
           //how to keep cards displayed????????
-            } else {
+            } else {                                                      
           //if they are not matched:
           //flip cards back
           //remove added "flipped" class in case cards are not matched
@@ -137,7 +137,7 @@ function timerDisplay(){
         
 }
 function statusChecker(){
-    timerInterval = 1000;
+    timerInterval = 2000;
     statusStat = setInterval(runGame, timerInterval)
 }
 function runGame() {
