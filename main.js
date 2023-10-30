@@ -15,11 +15,11 @@ let gridCells =
  ["0","0","0","0","0","0"] 
  ["0","0","0","0","0","0"]]
 
-const imagesArray=[document.getElementbyId("a"),document.getElementbyId("b"),document.getElementbyId("c"),
-document.getElementbyId("d"),document.getElementbyId("e"),document.getElementbyId("f"),document.getElementbyId("h"),
-document.getElementbyId("j"),document.getElementbyId("k"),document.getElementbyId("l"),document.getElementbyId("p"),
-document.getElementbyId("r"),document.getElementbyId("s"),document.getElementbyId("t"),document.getElementbyId("w"),
-document.getElementbyId("y"),document.getElementbyId("z")]
+// const imagesArray=[document.getElementbyId("a"),document.getElementbyId("b"),document.getElementbyId("c"),
+// document.getElementbyId("d"),document.getElementbyId("e"),document.getElementbyId("f"),document.getElementbyId("h"),
+// document.getElementbyId("j"),document.getElementbyId("k"),document.getElementbyId("l"),document.getElementbyId("p"),
+// document.getElementbyId("r"),document.getElementbyId("s"),document.getElementbyId("t"),document.getElementbyId("w"),
+// document.getElementbyId("y"),document.getElementbyId("z")]
 
 let score;  
 let state; 
@@ -33,14 +33,34 @@ const startEl=document.querySelector ("#start-btn")
 const gamebtnEls=document.querySelectorAll("#controller button")
 
 //3. Event Listeners  
-// gameBtnEls.forEach(function(btn){
-//     btn.addEventListener("click", handleBtnClick)
-//     })
+gameBtnEls.forEach(function(btn){
+    btn.addEventListener("click", handleBtnClick)
+    })
 
-function handleBtnClick(){
-    console.log("CLICK NEXT CARD")
-    if ()
+function handleBtnClick(){   //compare two selected eleemnts innerHTML
+    let flippedCards=[];
+    const card=btn.currentTarget
+    const clickedBtnId = btn.getAttribute("id")
+    if (flippedCards.length<2 && !card.classList.contains("flipped")){
+        card.classList.add("flipped")
+        flippedCards.push(clickedBtnId)
+        if (flippedCards.length===2){ //nested if statements -> now we add second choice to the array let's compare these two
+            // we need to declare if statement again in order to make the event listener to reach  the point to compare two elements -hala ke push kardim o length dota shod: biain compare konim
+            if (flippedCards[0]===flippedCards[0]){
+                alert("Matching Cards")
+                score++
+            } else{
+                //if they are not matched:
+                    //flip cards back
+                    //remove added "flipped" class in case cards are not matched
+                card.classList.remove("flipped")
+
+            }
+        }
+    }
+    flippedCards=[]
 }
+
 
 //4. Define Functions  
 
@@ -48,6 +68,7 @@ function handleBtnClick(){
 //i have to define sthg for my images so they can be picked randomly -> picking randomly means Math.radom()
 // which works hand in hand with indexing -> best practice for indexing is have the collection of my images in an array
 // I have to creat an array of my images and if i need to grab them it means I need DOM (document.querySelctor) -> i need an array of DOMS
+//iterating through image arrays makes us sure we are not picking an image over and over
 function shuffleCards(){
     const flatGrid=imagesArray.flat() // to ease positioning the images by indexing 0-35
     imagesArray.forEach(function(image){
@@ -55,7 +76,7 @@ function shuffleCards(){
         for (let i=0; i<shuffleIndex; i++){
             if(flatGrid[shuffleIndex[i]]==="0"){
                 flatGrid[shuffleIndex[i]] = image //not sure how to assign image
-            } else{ //if one of the shuffleNums are already been assigned
+            } else{ //if one of the shuffleNums already has been assigned
                 const secondRandomIndex=Math.floor(Math.random()*36)
                 if (secondRandomIndex !== shuffleIndex[i]){
                     flatGrid[secondRandomIndex] = image
@@ -89,7 +110,13 @@ function unflattenArray(flatArray, chunkSize){
     return unflattened
 }
 
-// function init() 
+init();
+function init() {
+    state={...INIT_STATE};
+    interval=1000
+    timer=setInterval(runGame, interval)
+    render()
+}
 
 // function runGame()  
 
