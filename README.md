@@ -35,24 +35,36 @@ Pseudocode:
    })
 
 4. Define Functions  
-   . init() the Game -> Initiate the Game  
-. Functions -> for Event Listeners  
-    . runGame()  
-    . handleBtnClick()  
-    . firstCardDisplay() -> setTimer() to Be Incorporated
-    . shuffle() -> is the helper function to Shuffle Images Randomly
-    . timer() -> let or function?
-    . hideCard()/showCard() -> Maybe a css Animation instead
-    . compareSelection()  
-    . gameOver()
 
-. Render the Result -> End the Game  
-    . render()  
-    . renderStats()  
-    . updateStats()
+UNDER THE HOOD/HELPER FUNCTIONS:
 
+    .Highest-Level Function: startGame() Function - activated by hitting start button and would initialize shuffleCards() and after 3 seconds run init function
+   . Main Function (sub function to startGame()): init() the Game -> used for initiating the whole game model, updating and checking status of user's play and it constantly renders teh result
+    . Main Function(sub function to startGame()): shuffleCard() is a helper function to distribute card images randomly throughout the grid each time player hits the start button
+    . SUB FUNCTIONS TO SHUFFLECARDS():
+            - shuffleIndex() which returns an array of two different indexes to position selected images in the flattened array of initial grid.
+            - unflattenArray() which returns nested array of 6*6 containing images in every i and j indexes.
+
+    . SUB FUNCTIONS TO INIT():
+            - timerDisplay() every 1000 ms updates the timer element (DOM) by incrementing "second" variable on teh screen
+            - statusChecker() checks the user's play status evey 6 seconds and decides whether to to keep running the game or stopping teh timer and announce the game is over. this functions runs a sub function called runGame():
+                - runGame() loops through sets of logics to see if user meets the criteria (score===0) to keep playing. This function gets called every second and check the current score of player.
+                    -gameOver() a sub function to the runGame() and it stops the timer
+
+            - render() updates the score DOM so user can see the score 
+
+
+
+UI FUNCTIONS - WAITS ON USER TO TAKE ACTIONS
+    . handleBtnClick() with logical statements, it is the brain of the model and decides if two selcted cards(buttons) by the user are matched or not.
+
+
+
+FUTURE FEATURES
 . Game Loops -> Ask Player to Continue  
     . continueGame()
 
 I also attached my box modeling I based my Pseudocode on.
 ![Alt text](./images/BOXING%20MODEL.png)
+
+
