@@ -7,7 +7,7 @@ I've opted for the Concentration (Memory Game), and I've designed a web browser 
 Pseudocode:
 
 1. Define Variables  
-   . Global Variables  
+    . Global Variables  
     . Constant Variables  
     . Initial Data States  
     . Animation Names  
@@ -18,7 +18,7 @@ Pseudocode:
     . let timer; -> setInterval id
 
 2. DOM Captures  
-   . Define DOMs  
+    . Define DOMs  
     . Controller Buttons -> 36 buttons  
     . Start Button  
     . Score-Stat Button
