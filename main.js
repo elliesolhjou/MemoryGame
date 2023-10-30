@@ -55,6 +55,11 @@ function shuffleCards(){
         for (let i=0; i<shuffleIndex; i++){
             if(flatGrid[shuffleIndex[i]]==="0"){
                 flatGrid[shuffleIndex[i]] = image //not sure how to assign image
+            } else{ //if one of the shuffleNums are already been assigned
+                const secondRandomIndex=Math.floor(Math.random()*36)
+                if (secondRandomIndex !== shuffleIndex[i]){
+                    flatGrid[secondRandomIndex] = image
+                }
             }
         }
         return flatGrid
@@ -66,7 +71,7 @@ function shuffleCards(){
 function shuffleIndex(){
     const shuffleNums=[]
     for (let i=0; i<=1; i++){
-        const generateNum=Math.floor(Math.random()*6)
+        const generateNum=Math.floor(Math.random()*36)
         if(!shuffleNums.includes(generateNum)){
             shuffleNums.push(generateNum)
         }
