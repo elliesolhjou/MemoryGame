@@ -53,6 +53,9 @@ UNDER THE HOOD/HELPER FUNCTIONS:
 UI FUNCTIONS - WAITS ON USER TO TAKE ACTIONS
 . handleBtnClick() with logical statements, it is the brain of the model and decides if two selcted cards(buttons) by the user are matched or not.
 
+FOR BETTER UNDERSTANDING OF TEH READER A FLOWCHART INDICATING THE GAME FLOW HAS BEEN PROVIDED. 
+![Alt text](./images/Conversation%20tree%20example.jpeg)
+
 FUTURE FEATURES
 . Game Loops -> Ask Player to Continue  
  . continueGame()
