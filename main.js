@@ -30,17 +30,17 @@ let interval;
 // 2. DOM Captures  
 const scoreStatEl=document.querySelector ("#score-stat")  
 const startEl=document.querySelector ("#start-btn")  
-const gamebtnEls=document.querySelectorAll("#controller button")
+const cards=document.querySelectorAll(".card")
 
 //3. Event Listeners  
-gameBtnEls.forEach(function(btn){
-    btn.addEventListener("click", handleBtnClick)
+cards.forEach(function(card){
+    card.addEventListener("click", handleBtnClick)
     })
 
 function handleBtnClick(){   //compare two selected eleemnts innerHTML
     let flippedCards=[];
-    const card=btn.currentTarget
-    const clickedBtnId = btn.getAttribute("id")
+    const card=e.currentTarget
+    const clickedBtnId = card.getAttribute("id")
     if (flippedCards.length<2 && !card.classList.contains("flipped")){
         card.classList.add("flipped")
         flippedCards.push(clickedBtnId)
