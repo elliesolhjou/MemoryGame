@@ -32,6 +32,7 @@ const imagesArray = [
   "images/W.png",
   "images/Y.png",
   "images/Z.png",
+  "images/M.png",
   "images/A.png",
   "images/B.png",
   "images/C.png",
@@ -49,8 +50,9 @@ const imagesArray = [
   "images/W.png",
   "images/Y.png",
   "images/Z.png",
+  "images/M.png",
 ];
-
+console.log(imagesArray.length)
 let score;
 let state;
 let timer; //setInterval Id
@@ -67,7 +69,6 @@ const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 //console.log(startBtnEl)
 
-
 function startGame() {
   console.log("starting game");
   cardLayout();
@@ -76,8 +77,6 @@ function startGame() {
 
 startBtnEl.addEventListener("click", startGame);
 
-
-let flippedCards = [];
 
 
 function cardLayout() {
@@ -90,7 +89,8 @@ function cardLayout() {
 let shuffledArray = [];
 function shuffleArray(arr) {
   const generatedIndex = [];
-  for (let i = 0; i < arr.length; i++) {
+  while(generatedIndex.length !== arr.length){
+    console.log(generatedIndex.length)
     const generateNum = Math.floor(Math.random() * 36);
     if (!generatedIndex.includes(generateNum)) {
       shuffledArray.push(imagesArray[generateNum]);
@@ -107,63 +107,75 @@ function gridMaker(shuffledArray, chunkSize) {
   }
 }
 
-function smartCells(){
-  grid.forEach(function (cell){
+function smartCells() {
+  grid.forEach(function (cell) {
     for (let i = 0; i < cell.length; i++) {
-      if (typeof cell[i] === "string"){
-        const img= document.createElement("img");
+      if (typeof cell[i] === "string") {
+        const img = document.createElement("img");
         img.setAttribute("src", cell[i]);
-      //trying to name an id based on tehimage file name
+        //trying to name an id based on tehimage file name
         const letterArray = cell[i].split("");
         const capitalLetter = letterArray.filter(function (letter) {
-        //to find cell[i] name
-        return letter === letter.toUpperCase();
-        console.lof(capitalLetter)
-      });
+          //to find cell[i] name
+          return letter === letter.toUpperCase();
+          console.lof(capitalLetter);
+        });
         if (capitalLetter) {
           img.setAttribute("id", capitalLetter[1]);
           document.getElementById("button-wrapper").appendChild(img);
           img.addEventListener("click", handleBtnClick);
         }
-      };
+      }
     }
-  })
+  });
 }
+let flippedCards = []
 
 //eventlistener
+// let flippedCards = [];
 function handleBtnClick(e) {
-  //compare two selected elements innerHTML
   const card = e.target;
   console.log(card);
-  const clickedBtnId = card.id;
-  console.log(clickedBtnId);
   if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
     card.classList.add("flipped");
-    flippedCards.push(clickedBtnId);}
-  if (flippedCards.length === 2) {
-    console.log(flippedCards);
+    flippedCards.push(card);
+    if (flippedCards.length === 2) {
+      card1Id= flippedCards[0].getAttribute("id")
+      card2Id= flippedCards[1].getAttribute("id")
+      console.log(card1Id, card2Id)
+      if(card1Id===card2Id){
+        console.log(flippedCards)
+      //console.log(flippedCards[0]);
       //nested if statements -> now we add second choice to the array let's compare these two
       // we need to declare if statement again in order to make the event listener to reach  the point to compare two elements -hala ke push kardim o length dota shod: biain compare konim
-    if (flippedCards[0] === flippedCards[1]) {
+    
         //how to make flipped match cards stay????
-      alert("Matching Cards");
-      score = parseInt(scoreStatEl.innerText) + 1;
-      state.score = score; 
-        //flippedCards[0].removeEventListener("click",handleBtnClick )
-        //flippedCards[1].removeEventListener("click",handleBtnClick )
-    } else {
-        //if they are not matched:
-        //flip cards back
-        //remove added "flipped" class in case cards are not matched
-      flippedCards[0].classList.remove("flipped");
-      flippedCards[1].classList.remove("flipped");
-      console.log(flippedCards);
-      score = parseInt(scoreStatEl.innerText) - 1;
-      state.score = score; // to update state object for runGame()
+        console.log("Matching Cards");
+        score = parseInt(scoreStatEl.innerText) + 1
+        scoreStatEl.innerText=score
+        state.score = score;
+        console.log(state.score)
+        flippedCards[0].style.visibility = "hidden";
+        flippedCards[1].style.visibility = "hidden"
+        //flippedCards[0].setAttribute("disabled", "true");
+        //flippedCards[0].style.display="none"
+        //flippedCards[1].style.display="none"
+        //flippedCards[1].setAttribute("disabled", "true");
+      } else {
+      //flippedCards[0].classList.remove("flipped");
+      //flippedCards[1].classList.remove("flipped");
+        console.log("not Matching Cards");
+        score = parseInt(scoreStatEl.innerText) - 1;
+        scoreStatEl.innerText=score
+        state.score = score; // to update state object for runGame()
+        console.log(score)
+        //console.log(state.score)
+      }
       flippedCards = [];
     }
   }
 }
+
 
 
 function init() {
@@ -173,16 +185,19 @@ function init() {
   render();
 }
 function timerDisplay() {
+  console.log("tmer should start")
   timer = setInterval(function () {
     seconds++;
     timerEl.innerText = seconds + " Seconds";
-  }, 10000);
+  }, 1000);
 }
 function statusChecker() {
-  timerInterval = 2000;
+  console.log("status checker should work")
+  timerInterval = 10000;
   statusStat = setInterval(runGame, timerInterval);
 }
 function runGame() {
+  console.log("run game should work")
   let keepRunning = true;
   let currentStats = [];
   for (let key in state) {
@@ -203,8 +218,12 @@ function runGame() {
   return keepRunning;
 }
 function render() {
+  console.log("render should work")
   state.score = parseInt(scoreStatEl.innerText);
 }
 function gameOver() {
+  console.log("game over work")
   clearInterval(timerDisplay);
 }
+
+
