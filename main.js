@@ -81,13 +81,6 @@ function startGame() {
 
 startBtnEl.addEventListener("click", startGame);
 
-//4. Define Functions
-
-//UNDERHOOD FUNCTIONS - helper function
-//i have to define sthg for my images so they can be picked randomly -> picking randomly means Math.radom()
-// which works hand in hand with indexing -> best practice for indexing is have the collection of my images in an array
-// I have to creat an array of my images and if i need to grab them it means I need DOM (document.querySelctor) -> i need an array of DOMS
-//iterating through image arrays makes us sure we are not picking an image over and over
 
 let flippedCards = [];
 
@@ -131,35 +124,7 @@ function cardLayout() {
   gridMaker(shuffledArray, 6);
   smartCells();
 }
-// let shuffleNums = [];
-// function shuffleCards() {
-//   console.log("should shuffle");
-//   const flatGrid = gridCells.flat(); // to ease positioning the images by indexing 0-35
-//   imagesArray.forEach(function (image) {
-//      // give us arrays of two numbers
-//     for (let i = 0; i < shuffleNums.length; i++) {
-//       if (flatGrid[shuffleNums[i]] === "0") {
-//         const displayCard = document
-//         .createElement("img")
-//         .setAttribute("src",image);
-//         document.querySelector(".button-wrapper").appendChild(displayCard)
-//         flatGrid[shuffleNums[i]] = displayCard;
-//       } else {
-//         //if one of the shuffleNums already has been assigned
-//         const ReplacementRandomIndex = Math.floor(Math.random() * 36);
-//         if (ReplacementRandomIndex !== shuffleNums[i]) {
-//           const displayCard = document
-//           .createElement("img")
-//           .setAttribute("src",image);
-//           document.querySelector(".button-wrapper").appendChild(displayCard)
-//           flatGrid[shuffleNums[i]] = displayCard
-//         }
-//       }
-//     }
-//     return flatGrid;
-//   });
-//   unflattenArray(flatGrid, 6);
-// }
+
 let shuffledArray = [];
 function shuffleArray(arr) {
   const generatedIndex = [];
@@ -173,15 +138,7 @@ function shuffleArray(arr) {
   return shuffledArray;
 }
 
-// function shuffleIndex() {
-//   shuffleNums=[]
-//   for (let i = 0; i <= 1; i++) {
-//     const generateNum = Math.floor(Math.random() * 36);
-//     if (!shuffleNums.includes(generateNum)) {
-//       shuffleNums.push(generateNum);
-//     }
-//   }
-// }
+
 const grid = [];
 function gridMaker(flatArray, chunkSize) {
   for (let i = 0; i < flatArray.length; i += chunkSize) {
@@ -189,27 +146,28 @@ function gridMaker(flatArray, chunkSize) {
   }
 }
 
-function smartCells(grd) {
-  grid.forEach(function (cell) {
+function smartCells(){
+  grid.forEach(function (cell){
     for (let i = 0; i < cell.length; i++) {
-      if (typeof cell[i] === "string")
-        displayCard = document.createElement("img");
-      displayCard.setAttribute("src", cell[i]);
+      if (typeof cell[i] === "string"){
+        const img= document.createElement("img");
+        img.setAttribute("src", cell[i]);
       //trying to name an id based on tehimage file name
       const letterArray = cell[i].split("");
       const capitalLetter = letterArray.find(function (letter) {
         //to find cell[i] name
         return letter === letter.toUpperCase();
       });
-      return capitalLetter;
+        if (capitalLetter) {
+          img.setAttribute("id", capitalLetter[0]);
+          document.getElementById("button-wrapper").appendChild(img);
+          img.addEventListener("click", handleBtnClick);
+        }
+      };
     }
-    if (capitalLetter) {
-      displayCard.setAttribute("id", capitalLetter[0]);
-      document.getElementById("button-wrapper").appendChild(displayCard);
-      displayCard.addEventListener("click", handleBtnClick);
-    }
-  });
+  })
 }
+
 
 function init() {
   console.log("initializedd helper functions");
