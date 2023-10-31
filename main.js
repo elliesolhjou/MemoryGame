@@ -224,5 +224,5 @@ function gameOver() {
 function reset() {
   console.log("reset works")
   document.getElementById("button-wrapper").style.display = "none";
-  setTimeout(startGame, 100);
+  clearInterval(statusStat)
 }
