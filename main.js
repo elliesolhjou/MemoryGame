@@ -2,7 +2,7 @@ console.log("js is loaded");
 
 // 1. Define Variables
 const INIT_STATE = {
-  score: 40,
+  score: 5,
 };
 
 // const gridCells = [
@@ -52,7 +52,7 @@ const imagesArray = [
   "images/Z.png",
   "images/M.png",
 ];
-console.log(imagesArray.length)
+
 let score;
 let state;
 let timer; //setInterval Id
@@ -69,14 +69,14 @@ const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 //console.log(startBtnEl)
 
+
+startBtnEl.addEventListener("click", startGame);
+
 function startGame() {
   console.log("starting game");
   cardLayout();
   setTimeout(init, 10);
 }
-
-startBtnEl.addEventListener("click", startGame);
-
 
 
 function cardLayout() {
@@ -89,8 +89,8 @@ function cardLayout() {
 let shuffledArray = [];
 function shuffleArray(arr) {
   const generatedIndex = [];
-  while(generatedIndex.length !== arr.length){
-    console.log(generatedIndex.length)
+  while (generatedIndex.length !== arr.length) {
+    console.log(generatedIndex.length);
     const generateNum = Math.floor(Math.random() * 36);
     if (!generatedIndex.includes(generateNum)) {
       shuffledArray.push(imagesArray[generateNum]);
@@ -129,7 +129,7 @@ function smartCells() {
     }
   });
 }
-let flippedCards = []
+let flippedCards = [];
 
 //eventlistener
 // let flippedCards = [];
@@ -140,43 +140,41 @@ function handleBtnClick(e) {
     card.classList.add("flipped");
     flippedCards.push(card);
     if (flippedCards.length === 2) {
-      card1Id= flippedCards[0].getAttribute("id")
-      card2Id= flippedCards[1].getAttribute("id")
-      console.log(card1Id, card2Id)
-      if(card1Id===card2Id){
-        console.log(flippedCards)
-      //console.log(flippedCards[0]);
-      //nested if statements -> now we add second choice to the array let's compare these two
-      // we need to declare if statement again in order to make the event listener to reach  the point to compare two elements -hala ke push kardim o length dota shod: biain compare konim
-    
+      card1Id = flippedCards[0].getAttribute("id");
+      card2Id = flippedCards[1].getAttribute("id");
+      console.log(card1Id, card2Id);
+      if (card1Id === card2Id) {
+        console.log(flippedCards);
+        //console.log(flippedCards[0]);
+        //nested if statements -> now we add second choice to the array let's compare these two
+        // we need to declare if statement again in order to make the event listener to reach  the point to compare two elements -hala ke push kardim o length dota shod: biain compare konim
+
         //how to make flipped match cards stay????
         console.log("Matching Cards");
-        score = parseInt(scoreStatEl.innerText) + 1
-        scoreStatEl.innerText=score
+        score = parseInt(scoreStatEl.innerText) + 1;
+        scoreStatEl.innerText = score;
         state.score = score;
-        console.log(state.score)
+        console.log(state.score);
         flippedCards[0].style.visibility = "hidden";
-        flippedCards[1].style.visibility = "hidden"
+        flippedCards[1].style.visibility = "hidden";
         //flippedCards[0].setAttribute("disabled", "true");
         //flippedCards[0].style.display="none"
         //flippedCards[1].style.display="none"
         //flippedCards[1].setAttribute("disabled", "true");
       } else {
-      //flippedCards[0].classList.remove("flipped");
-      //flippedCards[1].classList.remove("flipped");
+        //flippedCards[0].classList.remove("flipped");
+        //flippedCards[1].classList.remove("flipped");
         console.log("not Matching Cards");
         score = parseInt(scoreStatEl.innerText) - 1;
-        scoreStatEl.innerText=score
+        scoreStatEl.innerText = score;
         state.score = score; // to update state object for runGame()
-        console.log(score)
+        console.log(score);
         //console.log(state.score)
       }
       flippedCards = [];
     }
   }
 }
-
-
 
 function init() {
   console.log("initializedd helper functions");
@@ -185,19 +183,19 @@ function init() {
   render();
 }
 function timerDisplay() {
-  console.log("tmer should start")
+  console.log("timer should start");
   timer = setInterval(function () {
     seconds++;
     timerEl.innerText = seconds + " Seconds";
   }, 1000);
 }
 function statusChecker() {
-  console.log("status checker should work")
-  timerInterval = 10000;
+  console.log("status checker should work");
+  timerInterval = 1000;
   statusStat = setInterval(runGame, timerInterval);
 }
 function runGame() {
-  console.log("run game should work")
+  console.log("run game should work");
   let keepRunning = true;
   let currentStats = [];
   for (let key in state) {
@@ -207,23 +205,24 @@ function runGame() {
       keepRunning = false;
       console.log("GAME OVER");
       gameOver();
+      scoreStatEl.innerText = "0";
     }
   }
-  // for (let stat of currentStats) {
-  //     if (stat <= 0) {
-  //         keepRunning = false;
-  //         console.log("GAME OVER");
-  //         gameOver();
-  //     }
+
   return keepRunning;
 }
 function render() {
-  console.log("render should work")
+  console.log("render should work");
   state.score = parseInt(scoreStatEl.innerText);
 }
 function gameOver() {
-  console.log("game over work")
-  clearInterval(timerDisplay);
+  console.log("game over works");
+  clearInterval(timer);
+  timerEl.innerText = "...";
+  reset();
 }
-
-
+function reset() {
+  console.log("reset works")
+  document.getElementById("button-wrapper").style.display = "none";
+  setTimeout(startGame, 100);
+}
