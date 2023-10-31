@@ -227,4 +227,7 @@ function reset() {
     document.getElementById("button-wrapper").style.display = "none";
   }, 1000);
   clearInterval(statusStat);
+  setTimeout(function(){
+    window.location.reload()
+  }, 2000)
 }
