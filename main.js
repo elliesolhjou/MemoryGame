@@ -69,7 +69,6 @@ const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 //console.log(startBtnEl)
 
-
 startBtnEl.addEventListener("click", startGame);
 
 function startGame() {
@@ -77,7 +76,6 @@ function startGame() {
   cardLayout();
   setTimeout(init, 10);
 }
-
 
 function cardLayout() {
   console.log("card layout is done and grid is made");
@@ -122,7 +120,7 @@ function smartCells() {
         });
         if (capitalLetter) {
           img.setAttribute("id", capitalLetter[1]);
-          document.getElementById("button-wrapper").appendChild(img);
+          document.getElementById("card-front").appendChild(img);
           img.addEventListener("click", handleBtnClick);
         }
       }
@@ -132,7 +130,7 @@ function smartCells() {
 let flippedCards = [];
 
 //eventlistener
-// let flippedCards = [];
+
 function handleBtnClick(e) {
   const card = e.target;
   console.log(card);
@@ -162,13 +160,15 @@ function handleBtnClick(e) {
         //flippedCards[1].style.display="none"
         //flippedCards[1].setAttribute("disabled", "true");
       } else {
-        //flippedCards[0].classList.remove("flipped");
-        //flippedCards[1].classList.remove("flipped");
+        flippedCards[0].classList.remove("flipped");
+        flippedCards[1].classList.remove("flipped");
         console.log("not Matching Cards");
         score = parseInt(scoreStatEl.innerText) - 1;
         scoreStatEl.innerText = score;
         state.score = score; // to update state object for runGame()
         console.log(score);
+        flippedCards[0].style.visibility = "visible";
+        flippedCards[1].style.visibility = "visible";
         //console.log(state.score)
       }
       flippedCards = [];
@@ -222,7 +222,9 @@ function gameOver() {
   reset();
 }
 function reset() {
-  console.log("reset works")
-  document.getElementById("button-wrapper").style.display = "none";
-  clearInterval(statusStat)
+  console.log("reset works");
+  setTimeout(function () {
+    document.getElementById("button-wrapper").style.display = "none";
+  }, 1000);
+  clearInterval(statusStat);
 }

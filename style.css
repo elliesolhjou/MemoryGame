@@ -1,0 +1,26 @@
+/* #button-wrapper img {
+  width: 25%;
+  height: 25%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+} */
+
+/* #button-wrapper:hover img {
+  transform: rotateY(180deg);
+} */
+/* 
+.card-front,
+.card-back {
+  backface-visibility: visible;
+}
+.card-front {
+  background-color: #107bdf;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+} 
+
+/* .card-back {
+  background-color: #e20b0b; /* You can add a background color for the blank back side */
+  /* transform: rotateY(180deg);
+} */ */ */
