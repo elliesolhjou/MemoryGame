@@ -67,11 +67,6 @@ const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 //console.log(startBtnEl)
 
-//3. Event Listeners
-// cards.forEach(function (card) {
-//   card.addEventListener("click", handleBtnClick);
-// });
-//btnWrapperEl.addEventListener("click", handleBtnClick)
 
 function startGame() {
   console.log("starting game");
@@ -84,39 +79,6 @@ startBtnEl.addEventListener("click", startGame);
 
 let flippedCards = [];
 
-function handleBtnClick(e) {
-  //compare two selected elements innerHTML
-  const card = e.target;
-  console.log(card);
-  const clickedBtnId = card.id;
-  console.log(clickedBtnId);
-  if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
-    card.classList.add("flipped");
-    flippedCards.push(clickedBtnId);
-    if (flippedCards.length === 2) {
-      console.log(flippedCards);
-      //nested if statements -> now we add second choice to the array let's compare these two
-      // we need to declare if statement again in order to make the event listener to reach  the point to compare two elements -hala ke push kardim o length dota shod: biain compare konim
-      if (flippedCards[0] === flippedCards[1]) {
-        //how to make flipped match cards stay????
-        alert("Matching Cards");
-        score = parseInt(scoreStatEl.innerText) + 1;
-        state.score = score; // to update state object for runGame()
-        //how to keep cards displayed????????
-      } else {
-        //if they are not matched:
-        //flip cards back
-        //remove added "flipped" class in case cards are not matched
-        flippedCards[0].classList.remove("flipped");
-        flippedCards[1].classList.remove("flipped");
-        console.log(flippedCards);
-        score = parseInt(scoreStatEl.innerText) - 1;
-        state.score = score; // to update state object for runGame()
-        flippedCards = [];
-      }
-    }
-  }
-}
 
 function cardLayout() {
   console.log("card layout is done and grid is made");
@@ -138,11 +100,10 @@ function shuffleArray(arr) {
   return shuffledArray;
 }
 
-
 const grid = [];
-function gridMaker(flatArray, chunkSize) {
-  for (let i = 0; i < flatArray.length; i += chunkSize) {
-    grid.push(flatArray.slice(i, i + chunkSize));
+function gridMaker(shuffledArray, chunkSize) {
+  for (let i = 0; i < shuffledArray.length; i += chunkSize) {
+    grid.push(shuffledArray.slice(i, i + chunkSize));
   }
 }
 
@@ -153,19 +114,55 @@ function smartCells(){
         const img= document.createElement("img");
         img.setAttribute("src", cell[i]);
       //trying to name an id based on tehimage file name
-      const letterArray = cell[i].split("");
-      const capitalLetter = letterArray.find(function (letter) {
+        const letterArray = cell[i].split("");
+        const capitalLetter = letterArray.filter(function (letter) {
         //to find cell[i] name
         return letter === letter.toUpperCase();
+        console.lof(capitalLetter)
       });
         if (capitalLetter) {
-          img.setAttribute("id", capitalLetter[0]);
+          img.setAttribute("id", capitalLetter[1]);
           document.getElementById("button-wrapper").appendChild(img);
           img.addEventListener("click", handleBtnClick);
         }
       };
     }
   })
+}
+
+//eventlistener
+function handleBtnClick(e) {
+  //compare two selected elements innerHTML
+  const card = e.target;
+  console.log(card);
+  const clickedBtnId = card.id;
+  console.log(clickedBtnId);
+  if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
+    card.classList.add("flipped");
+    flippedCards.push(clickedBtnId);}
+  if (flippedCards.length === 2) {
+    console.log(flippedCards);
+      //nested if statements -> now we add second choice to the array let's compare these two
+      // we need to declare if statement again in order to make the event listener to reach  the point to compare two elements -hala ke push kardim o length dota shod: biain compare konim
+    if (flippedCards[0] === flippedCards[1]) {
+        //how to make flipped match cards stay????
+      alert("Matching Cards");
+      score = parseInt(scoreStatEl.innerText) + 1;
+      state.score = score; 
+        //flippedCards[0].removeEventListener("click",handleBtnClick )
+        //flippedCards[1].removeEventListener("click",handleBtnClick )
+    } else {
+        //if they are not matched:
+        //flip cards back
+        //remove added "flipped" class in case cards are not matched
+      flippedCards[0].classList.remove("flipped");
+      flippedCards[1].classList.remove("flipped");
+      console.log(flippedCards);
+      score = parseInt(scoreStatEl.innerText) - 1;
+      state.score = score; // to update state object for runGame()
+      flippedCards = [];
+    }
+  }
 }
 
 
