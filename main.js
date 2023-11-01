@@ -109,7 +109,7 @@ function gridMaker() {
     for (let col = 0; col < numColumns; col++) {
       const gridItem = document.createElement("div");
       gridItem.classList.add("grid-item");
-      //gridItem.classList.add("card-front");
+      gridItem.classList.add("card-front");
       const randomImagePath = shuffledArray[0];
       console.log(randomImagePath);
       const imageIdLetters = randomImagePath.split("");
