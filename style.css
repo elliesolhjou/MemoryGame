@@ -1,0 +1,20 @@
+/* favorite colors : #87AAAA#C8E3D4#F6EABE#F6D7A7
+https://colorhunt.co/palette/f6d7a7f6eabec8e3d487aaaa/?ref=tab */
+*{
+    box-sizing: border-box;
+}
+.grid-item{
+    height: auto;
+    width: 200px;
+}
+#grid-container{
+    display: flex;
+    flex-wrap: wrap;
+    height: 800px;
+    width: 800px;
+}
+
+.grid-item{
+    width: 200px;
+    height: 200px;
+}

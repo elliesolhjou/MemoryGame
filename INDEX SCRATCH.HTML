@@ -1,17 +1,42 @@
-<button id="a" class="card"><img src="./images/A.png" alt="A"></button>
-<button id="b" class="card"><img src="./images/B.png" alt="B"></button>
-<button id="c" class="card"><img src="./images/C.png" alt="C"></button>
-<button id="d" class="card"><img src="./images/D.png" alt="D"></button>
-<button id="e" class="card"><img src="./images/E.png" alt="E"></button>
-<button id="f" class="card"><img src="./images/F.png" alt="F"></button>
-<button id="h" class="card"><img src="./images/H.png" alt="H"></button>
-<button id="j" class="card"><img src="./images/J.png" alt="J"></button>
-<button id="k" class="card"><img src="./images/K.png" alt="K"></button>
-<button id="l" class="card"><img src="./images/L.png" alt="L"></button>
-<button id="p" class="card"><img src="./images/P.png" alt="P"></button>
-<button id="r" class="card"><img src="./images/R.png" alt="R"></button>
-<button id="s" class="card"><img src="./images/S.png" alt="S"></button>
-<button id="t" class="card"><img src="./images/T.png" alt="T"></button>
-<button id="w" class="card"><img src="./images/W.png" alt="W"></button>
-<button id="y" class="card"><img src="./images/Y.png" alt="Y"></button>
-<button id="z" class="card"><img src="./images/Z.png" alt="Z"></button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kid's Memory Game</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="game-title">Kid's Memory Game</h1>
+    </header>
+    <main class="container memory-card">
+      <section>
+        <button id="start-btn">START</button>
+        <button id="reset-btn">RESET</button>
+        <h3>
+          Timer: <span id="timer-stat" class="timer-stat-wrapper">... </span>
+        </h3>
+        <h3>
+          Score: <span id="score-stat" class="score-stat-wrapper">5 </span>
+        </h3>
+      </section>
+      <section id="button-wrapper" class="button-wrapper card-inner">
+        <div id="card-front"></div>
+      </section>
+      <div id="card-back" class="card-back"></div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
