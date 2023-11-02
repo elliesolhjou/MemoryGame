@@ -3,7 +3,7 @@
 <span style="font-size: 17px;">**Description**</span>  
 Concentration is a classic card-matching game that challenges your memory and concentration. The game consists of a set of face-down cards, and the objective is to find pairs of matching cards by flipping them over two at a time. The game is won when all the pairs have been successfully matched.
 
-![Alt text](image.png)
+![Alt text](./images/image.png)
 
 <span style="font-size: 17px;">**Gameplay / User Experience** </span>  
  When you start the game, you'll be presented with a grid of 36 face-down cards.
@@ -12,7 +12,7 @@ If the two cards match, they will remain face-up, and you'll earn a point.
 If the cards do not match, they will be flipped back face-down.
 Continue to find matching pairs until all cards are face-up, and you win the game. The game begins with an initial score of 20, and if your score reaches zero, the game is over.
 
-![Alt text](image-2.png)
+![Alt text](./images/image-1.png)
 
 <span style="font-size: 24px;">**Concentration Gameplay** </span>
 
@@ -32,7 +32,7 @@ I would like to express my acknowledgement to the following sources for their co
 - [Lucid](https://www.example.com/lucid): For wireframing and design resources.
 - [Freepik](https://www.example.com/freepik): For offering design assets and graphics used in the project.
 
-![Alt text](image-4.png)
+![Alt text](./images/image-4.png)
 
 <span style="font-size: 17px;">**How to Play / Install** </span>  
 To play the Concentration Game, follow these steps:
@@ -53,4 +53,4 @@ Here are some potential features and improvements we plan to implement in the fu
 - Add an animation effect to the card flipping action
 - Format the timer to display in the MM:SS format
 
-![Alt text](image-5.png)
+![Alt text](./images/image-5.png)
