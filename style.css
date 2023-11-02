@@ -12,13 +12,11 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #f6d7a7;
-  /* border: 12px purple solid; */
 }
 
 .container {
   width: 90%;
   height: 90%;
-  /* border: 12px red solid; */
   display: flex;
   position: relative;
   justify-content: center;
