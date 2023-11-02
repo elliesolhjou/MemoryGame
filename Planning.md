@@ -8,18 +8,21 @@ I've opted for the Concentration (Memory Game), and I've designed a web browser 
    . Global Variables  
    . Constant Variables  
    . Initial Data States  
-   . Animation Names  
    . Image Asset Paths  
    . State Variables -> State is Data Would Change Throughout the Game (let)  
    . let score;  
    . let state; -> Shows Score and Timer States  
    . let timer; -> setInterval id
+   . let numRows
+   . let numColumns
+   ...
 
 2. DOM Captures  
     . Define DOMs  
     . Controller Buttons -> 36 buttons  
     . Start Button  
     . Score-Stat Button
+   . Reset Button
 
    . Save and Cached DOM Elements in a New Varaiable  
     . const scoreStatEl=document.querySelector ("#score-stat")  
@@ -31,6 +34,7 @@ I've opted for the Concentration (Memory Game), and I've designed a web browser 
     . gameBtnEls.forEach(function(btn){
    btn.addEventListener("click", handleBtnClick)
    })
+   . Add event listener to teh Reset Game button to reload and refresh the page
 
 4. Define Functions
 

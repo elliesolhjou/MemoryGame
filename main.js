@@ -62,9 +62,6 @@ const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 const resetBtnEl = document.querySelector("#reset-btn");
 const gridContainerEl = document.getElementById("grid-container");
 
-// const numRows = 6;
-// const numColumns = 6;
-
 startBtnEl.addEventListener("click", startGame);
 resetBtnEl.addEventListener("click", reset);
 
@@ -72,7 +69,6 @@ function startGame() {
   console.log("starting game");
   cardLayout();
   setTimeout(init, 10);
-  //showCardLayout for 2 Seconds
 }
 
 function cardLayout() {

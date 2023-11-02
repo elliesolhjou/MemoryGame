@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -72,7 +71,6 @@ button:focus {
   gap: 10px;
   transform-style: preserve-3d;
   perspective: 500;
-
 }
 
 .grid-item {
@@ -194,7 +192,6 @@ button:focus {
     letter-spacing: 0em;
     font-weight: 400;
     flex-wrap: wrap;
-
   }
   h3 {
     font-size: 1em;
@@ -420,7 +417,7 @@ button:focus {
   button {
     padding: 18px 18px;
     color: whitesmoke;
-    background-color: green;
+    background-color: #f94c10;
     border: none;
     font-size: 1.1rem;
     font-weight: 400;
