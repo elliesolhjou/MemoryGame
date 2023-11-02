@@ -111,6 +111,58 @@ button:focus {
 }
 
 @media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+    justify-content: center;
+  }
+  button {
+    padding: 8px 8px;
+    color: whitesmoke;
+    background-color: rgb(190, 17, 1);
+    border: none;
+    font-size: 0.75em;
+    letter-spacing: 0em;
+    font-weight: 200;
+    flex-wrap: wrap;
+  }
+  h3 {
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  #grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80vw;
+    width: 80vw;
+    gap: 2px;
+    transform-style: preserve-3d;
+    perspective: 500;
+    margin: 10px;
+    border: none;
+  }
+  .grid-item {
+    height: 16%;
+    width: 16%;
+    /* border: 5px purple solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.25s;
+    background-size: cover;
+    background-position: center;
+  }
+}
+@media (min-width: 600px) and (max-width: 600px) {
   body {
     background-color: #ffc436;
   }
@@ -118,7 +170,7 @@ button:focus {
     background-color: #ffc436;
   }
   h1 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     letter-spacing: 0.01rem;
   }
   button {

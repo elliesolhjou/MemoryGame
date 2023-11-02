@@ -6,3 +6,10 @@ How to show card layut to the player at the begiining of game
 
 How to make alert go after 2 seconds with setTimeOut and .close()
 ![Alt text](<./images/Screenshot 2023-11-02 at 4.28.41 PM.png>)
+
+
+If I hit the start game, it doesn't clear up prior grid..I ran teh code block below but it clears it anyway
+
+  setTimeout(function () {
+    window.location.reload();
+  }, 500);

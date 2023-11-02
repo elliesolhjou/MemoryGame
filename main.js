@@ -67,6 +67,7 @@ resetBtnEl.addEventListener("click", reset);
 
 function startGame() {
   console.log("starting game");
+  gridContainerEl.innerHTML = ""
   cardLayout();
   setTimeout(init, 10);
 }
