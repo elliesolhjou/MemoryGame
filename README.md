@@ -1,66 +1,37 @@
-I've opted for the Concentration (Memory Game), and I've designed a web browser game called "KID'S MEMORY GAME," specifically tailored for children aged 4 or younger.
+Evaluation Template 
+Functionality ( _ / 4 )
+Render a game in the browser; includes separate HTML, CSS & JavaScript files
+No obvious bugs, broken functionality, or irregular UI behavior
+Include win/loss logic and render win/loss messages in HTML 
+Project is deployed online using GitHub Pages. 
 
-![Alt text](./images/Project%20Wireframe.jpeg)
+Code Quality ( _ / 3 )
+Have properly indented HTML, CSS & JavaScript with consistent line break count between functions, variables, and comments in your code. 
+Code syntax is consistent, i.e. function syntax is the same across the app; no remaining unused and/or commented out code is found in your application's main files 
+Have functions and variables that are named sensibly - function names describe their behavior/purpose and variables accurately describe the data stored.
 
-Pseudocode:
+Version Control ( _ / 3 )
+A public repository was created on github.com
+Your repo includes (at least) 7 commits across the week of development (approximately one per day)
+Commit messages are clear and describe the changes made to your project (file reference, feature descriptions, and completion status). 
 
-1. Define Variables  
-   . Global Variables  
-   . Constant Variables  
-   . Initial Data States  
-   . Animation Names  
-   . Image Asset Paths  
-   . State Variables -> State is Data Would Change Throughout the Game (let)  
-   . let score;  
-   . let state; -> Shows Score and Timer States  
-   . let timer; -> setInterval id
+Documentation ( _ / 5 )
+Project  README.md file with these sections:
+Title and description of the game
+Screenshot images and descriptions of your gameplay / user-experience (UX)
+List of technologies used and acknowledgements
+Guidelines for how to play / install the game
+A list of future features 
 
-2. DOM Captures  
-    . Define DOMs  
-    . Controller Buttons -> 36 buttons  
-    . Start Button  
-    . Score-Stat Button
+Presentation ( _ / 2 )
+Presentation length ( does not exceed 7 minutes) 
+Covers all content requirements
 
-   . Save and Cached DOM Elements in a New Varaiable  
-    . const scoreStatEl=document.querySelector ("#score-stat")  
-    . const startEl=document.querySelector ("#start-btn)  
-    . const gamebtnEls=document.querySelectorAll("#controller button")
+Planning Materials  ( _ / 3 )
+Planning.md is found in your project repo – includes:
+Your choice of game
+Wireframe
+Pseudo-code
 
-3. Event Listeners  
-   . Add Custom Functions to Cached DOM Elements  
-    . gameBtnEls.forEach(function(btn){
-   btn.addEventListener("click", handleBtnClick)
-   })
 
-4. Define Functions
-
-UNDER THE HOOD/HELPER FUNCTIONS:
-
-    .HIGHEST-LEVEL FUNCTION: startGame() - activated by hitting start button and would initialize shuffleCards() and after 3 seconds run init function
-
-. Main Function (sub function to startGame()): init() the Game -> used for initiating the whole game model, updating and checking status of user's play and it constantly renders teh result
-. Main Function(sub function to startGame()): shuffleCard() is a helper function to distribute card images randomly throughout the grid each time player hits the start button
-. SUB FUNCTIONS TO SHUFFLECARDS(): - shuffleIndex() which returns an array of two different indexes to position selected images in the flattened array of initial grid. - unflattenArray() which returns nested array of 6\*6 containing images in every i and j indexes.
-
-    . SUB FUNCTIONS TO INIT():
-            - timerDisplay() every 1000 ms updates the timer element (DOM) by incrementing "second" variable on teh screen
-            - statusChecker() checks the user's play status evey two seconds and decides whether to to keep running the game or stopping teh timer and announce the game is over. this functions runs a sub function called runGame():
-                - runGame() loops through sets of logics to see if user meets the criteria (score===0) to keep playing. This function gets called every second and check the current score of player.
-                    -gameOver() a sub function to the runGame() and it stops the timer
-
-            - render() updates the score DOM so user can see the score
-
-UI FUNCTIONS - WAITS ON USER TO TAKE ACTIONS
-. handleBtnClick() with logical statements, it is the brain of the model and decides if two selcted cards(buttons) by the user are matched or not.
-
-FOR BETTER UNDERSTANDING OF TEH READER A FLOWCHART INDICATING THE GAME FLOW HAS BEEN PROVIDED. 
-![Alt text](./images/Conversation%20tree%20example.jpeg)
-
-FUTURE FEATURES
-. Game Loops -> Ask Player to Continue  
- . continueGame()
-
-my question: how can I keep matched cards be displayed for teh rest of teh day
-
-I also attached my box modeling I based my Pseudocode on.
-![Alt text](./images/BOXING%20MODEL.png)
+Total ( _ / 20 )

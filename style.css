@@ -1,5 +1,4 @@
-/* favorite colors : #87AAAA#C8E3D4#F6EABE#F6D7A7
-https://colorhunt.co/palette/f6d7a7f6eabec8e3d487aaaa/?ref=tab */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -73,23 +72,15 @@ button:focus {
   gap: 10px;
   transform-style: preserve-3d;
   perspective: 500;
-  /* border: 10px rgba(106, 255, 0, 0.788) solid; */
+
 }
 
 .grid-item {
-  /* height: 12.5vw;
-  width: 12.5vw; */
-  /* height: 16%;
-  width: 16%; */
-
-  /* border: 5px purple solid; */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   transition: 0.25s;
-  /* backface-visibility: hidden;
-  transform-style: preserve-3d; */
 }
 
 .blank-card {
@@ -104,44 +95,7 @@ button:focus {
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }
-/* .grid-item:after {
-  content: " ";
-  position: absolute;
-  
-  inset: 0;
-  transition: 0.25s;
-  transform: rotateY(0deg);
-  backface-visibility: hidden;
-} 
-.card-front {
-  background-color: black;
-  opacity:0
-}
 
-.card-front{
-  transform: rotateY(180deg);
-}  */
-
-/* 
-.grid-item {
-  height: 100px;
-  background-color: #ccc;
-  display: inline-block;
-  margin: 5px;
-  perspective: 1000px; 
-  transition: transform 0.5s; 
-}
-
-.grid-item.flipped {
-
-  background-color: transparent; 
-}
-
-
-.grid-item.flipped .front {
-  display: block;
-
-} */
 .no-color {
   background-color: red;
   opacity: 0.5;
@@ -240,8 +194,7 @@ button:focus {
     letter-spacing: 0em;
     font-weight: 400;
     flex-wrap: wrap;
-    /* justify-content: center;
-    align-items: center; */
+
   }
   h3 {
     font-size: 1em;
@@ -270,7 +223,6 @@ button:focus {
   .grid-item {
     height: 16%;
     width: 16%;
-    /* border: 5px purple solid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -329,7 +281,6 @@ button:focus {
   .grid-item {
     height: 15%;
     width: 14.2%;
-    /* border: 5px purple solid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -392,7 +343,6 @@ button:focus {
   .grid-item {
     height: 16%;
     width: 16%;
-    /* border: 5px purple solid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -444,7 +394,6 @@ button:focus {
   .grid-item {
     height: 16%;
     width: 15.4%;
-    /* border: 5px purple solid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -500,7 +449,6 @@ button:focus {
   .grid-item {
     height: 16%;
     width: 16%;
-    /* border: 5px purple solid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -557,7 +505,6 @@ button:focus {
   .grid-item {
     height: 16%;
     width: 16%;
-    /* border: 5px purple solid; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -614,7 +561,6 @@ button:focus {
   .grid-item {
     height: 16%;
     width: 16%;
-    /* border: 5px purple solid; */
     display: flex;
     align-items: center;
     justify-content: center;
