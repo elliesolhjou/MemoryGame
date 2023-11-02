@@ -79,7 +79,6 @@ const numColumns = 6;
 startBtnEl.addEventListener("click", startGame);
 resetBtnEl.addEventListener("click", reset);
 
-
 function startGame() {
   console.log("starting game");
   cardLayout();
@@ -116,10 +115,10 @@ function gridMaker() {
       gridItem.classList.add("card-front");
       gridItem.classList.add("flip");
 
-      const gridItemContent = document.createElement("div")
-      gridItemContent.classList.add("solid-color")
-      gridItemContent.classList.add("card-front")
-      gridItemContent.style.zIndex="10"
+      const gridItemContent = document.createElement("div");
+      gridItemContent.classList.add("solid-color");
+      gridItemContent.classList.add("card-front");
+      gridItemContent.style.zIndex = "10";
 
       const randomImagePath = shuffledArray[0];
       //console.log(randomImagePath);
@@ -132,7 +131,7 @@ function gridMaker() {
       console.log(imageIdFinder[1]);
       if (imageIdFinder) {
         gridItem.setAttribute("id", imageIdFinder[1]);
-        gridItemContent.setAttribute("id", imageIdFinder[1])
+        gridItemContent.setAttribute("id", imageIdFinder[1]);
       }
       //console.log(randomImagePath);
       //console.log(typeof randomImagePath);
@@ -146,13 +145,11 @@ function gridMaker() {
 
       gridContainerEl.appendChild(gridItem);
       //gridItem.addEventListener("click", handleBtnClick);
-      gridItem.appendChild(gridItemContent)
-      gridItemContent.addEventListener("click", handleBtnClick)
-   
+      gridItem.appendChild(gridItemContent);
+      gridItemContent.addEventListener("click", handleBtnClick);
     }
   }
 }
-
 
 //eventlistener
 
@@ -164,10 +161,10 @@ let flippedCards = [];
 
 function handleBtnClick(e) {
   const card = e.target;
-  card.style.visibility="hidden"
-  card.classList.remove("card-front");
-  //card.classList.add("card-back");
-  console.log(card);
+  card.style.visibility = "hidden";
+  // card.classList.remove("card-front");
+  // //card.classList.add("card-back");
+  // console.log(card);
   if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
     card.classList.add("flipped");
     flippedCards.push(card);
@@ -182,12 +179,11 @@ function handleBtnClick(e) {
         scoreStatEl.innerText = score;
         state.score = score;
         console.log(state.score);
-        flippedCards[0].style.visibility = "hidden";        
+        flippedCards[0].style.visibility = "hidden";
         flippedCards[1].style.visibility = "hidden";
         flippedCards[0].classList.remove("flipped");
-        flippedCards[1].classList.remove("flipped")
-        flippedCards = []
-
+        flippedCards[1].classList.remove("flipped");
+        flippedCards = [];
       } else {
         console.log("not Matching Cards");
         score = parseInt(scoreStatEl.innerText) - 1;
@@ -197,13 +193,13 @@ function handleBtnClick(e) {
         setTimeout(() => {
           flippedCards[0].classList.remove("flipped");
           flippedCards[1].classList.remove("flipped");
-  
-          // Set a timeout to make both cards visible again
+
+          // Set a timeout to make both blank cards visible again
           setTimeout(() => {
             flippedCards[0].style.visibility = "visible";
             flippedCards[1].style.visibility = "visible";
-            flippedCards = []
-          }, 1);
+            flippedCards = [];
+          }, 200);
         }, 500);
       }
     }
@@ -212,6 +208,7 @@ function handleBtnClick(e) {
 function init() {
   console.log("initializedd helper functions");
   timerDisplay();
+  //setTimeout(()=>card.style.visibility="hidden",1500)
   statusChecker();
   render();
 }
