@@ -53,14 +53,8 @@ UNDER THE HOOD/HELPER FUNCTIONS:
 UI FUNCTIONS - WAITS ON USER TO TAKE ACTIONS
 . handleBtnClick() with logical statements, it is the brain of the model and decides if two selcted cards(buttons) by the user are matched or not.
 
-FOR BETTER UNDERSTANDING OF TEH READER A FLOWCHART INDICATING THE GAME FLOW HAS BEEN PROVIDED. 
+FOR BETTER UNDERSTANDING OF THE READER A FLOWCHART INDICATING THE GAME FLOW HAS BEEN PROVIDED.
 ![Alt text](./images/Conversation%20tree%20example.jpeg)
-
-FUTURE FEATURES
-. Game Loops -> Ask Player to Continue  
- . continueGame()
-
-my question: how can I keep matched cards be displayed for teh rest of teh day
 
 I also attached my box modeling I based my Pseudocode on.
 ![Alt text](./images/BOXING%20MODEL.png)
