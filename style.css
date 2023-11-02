@@ -26,8 +26,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* gap: 30px; */
-  background-color: brown;
   padding: 40px 60px;
 }
 
@@ -75,7 +73,7 @@ button:focus {
   gap: 10px;
   transform-style: preserve-3d;
   perspective: 500;
-  border: 10px rgba(106, 255, 0, 0.788) solid;
+  /* border: 10px rgba(106, 255, 0, 0.788) solid; */
 }
 
 .grid-item {
@@ -211,9 +209,146 @@ button:focus {
     justify-content: center;
     position: relative;
     transition: 0.25s;
+    background-size: cover;
+    background-position: center;
   }
 }
-@media (min-width: 600px) and (max-width: 1400px){
+@media (min-width: 601px) and (max-width: 689px) {
+  .container {
+    background-color: pink;
+  }
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.01rem;
+  }
+  button {
+    padding: 5px 5px;
+    color: whitesmoke;
+    background-color: blue;
+    border: none;
+    font-size: 0.75em;
+    letter-spacing: 0em;
+    font-weight: 400;
+    flex-wrap: wrap;
+    /* justify-content: center;
+    align-items: center; */
+  }
+  h3 {
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  #grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80vw;
+    width: 80vw;
+    gap: 2px;
+    transform-style: preserve-3d;
+    perspective: 500;
+    margin: 10px;
+    border: none;
+  }
+  .grid-item {
+    height: 16%;
+    width: 16%;
+    /* border: 5px purple solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.25s;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (min-width: 690px) and (max-width: 767px){
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 0rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    color: black;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  button {
+    padding: 15px 15px;
+    color: whitesmoke;
+    background-color: green;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80vw;
+    width: 80vw;
+    gap: 2px;
+    transform-style: preserve-3d;
+    perspective: 500;
+    border: none;
+  }
+  .grid-item {
+    height: 15%;
+    width: 14.2%;
+    /* border: 5px purple solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.25s;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 924px){
+  h1 {
+    font-size: 5rem;
+    letter-spacing: 0rem;
+  }
+  h3 {
+    font-size: 2rem;
+    color: black;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  button {
+    padding: 18px 18px;
+    color: whitesmoke;
+    background-color: green;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
   .grid-item {
     height: 75px;
     width: 75px;
@@ -240,10 +375,145 @@ button:focus {
     justify-content: center;
     position: relative;
     transition: 0.25s;
+    background-size: cover;
+    background-position: center;
   }
 }
+@media (min-width: 925px) and (max-width: 990px){
+  h1 {
+    font-size: 5rem;
+    letter-spacing: 0rem;
+  }
+  h3 {
+    font-size: 2rem;
+    color: black;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  button {
+    padding: 18px 18px;
+    color: whitesmoke;
+    background-color: green;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 
-@media (min-width: 1400px) {
+  #grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80vw;
+    width: 80vw;
+    gap: 2px;
+    transform-style: preserve-3d;
+    perspective: 500;
+    margin: 10px;
+    border: none;
+  }
+  .grid-item {
+    height: 16%;
+    width: 15.4%;
+    /* border: 5px purple solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.25s;
+    background-size: cover;
+    background-position: center;
+  }
+}
+@media (min-width: 990px) and (max-width: 1400px){
+  h1 {
+    font-size: 5rem;
+    letter-spacing: 0rem;
+  }
+  h3 {
+    font-size: 2rem;
+    color: black;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  button {
+    padding: 18px 18px;
+    color: whitesmoke;
+    background-color: green;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid-item {
+    height: 75px;
+    width: 75px;
+  }
+  #grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80vw;
+    width: 80vw;
+    gap: 2px;
+    transform-style: preserve-3d;
+    perspective: 500;
+    margin: 10px;
+    border: none;
+  }
+  .grid-item {
+    height: 16%;
+    width: 16%;
+    /* border: 5px purple solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.25s;
+    background-size: cover;
+    background-position: center;
+  }
+}
+@media (min-width: 1700px) {
+  h1 {
+    font-size: 10rem;
+    letter-spacing: 0rem;
+  }
+  h3 {
+    font-size: 3.5rem;
+    color: black;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  button {
+    padding: 25px 25px;
+    color: whitesmoke;
+    background-color: blue;
+    border: none;
+    font-size: 2rem;
+    letter-spacing: .2em;
+    font-weight: 600;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
   .grid-item {
     height: 175px;
     width: 175px;
@@ -270,5 +540,64 @@ button:focus {
     justify-content: center;
     position: relative;
     transition: 0.25s;
+    background-size: cover;
+    background-position: center;
+  }
+}
+@media (min-width: 1457px) {
+  h1 {
+    font-size: 10rem;
+    letter-spacing: 0rem;
+  }
+  h3 {
+    font-size: 3.5rem;
+    color: black;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  button {
+    padding: 25px 25px;
+    color: whitesmoke;
+    background-color: blue;
+    border: none;
+    font-size: 2rem;
+    letter-spacing: .2em;
+    font-weight: 600;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid-item {
+    height: 175px;
+    width: 175px;
+  }
+  #grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80vw;
+    width: 80vw;
+    gap: 2px;
+    transform-style: preserve-3d;
+    perspective: 500;
+    margin: 10px;
+    border: none;
+  }
+  .grid-item {
+    height: 16%;
+    width: 16%;
+    /* border: 5px purple solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.25s;
+    background-size: cover;
+    background-position: center;
   }
 }
