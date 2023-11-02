@@ -190,12 +190,10 @@ function handleBtnClick(e) {
         }, 400);
       }
     }
-    return card;
   }
 }
 function init() {
   console.log("initializedd helper functions");
-  //showCards(cards);
   timerDisplay();
   statusChecker();
   render();
@@ -204,7 +202,7 @@ function timerDisplay() {
   console.log("timer should start");
   timer = setInterval(function () {
     seconds++;
-    timerEl.innerText = seconds + " Seconds";
+    timerEl.innerText =`Timer: ${seconds} seconds`;
   }, 1000);
 }
 function statusChecker() {
@@ -238,7 +236,7 @@ function gameOver() {
   console.log("game over works");
   alert("GAME OVER");
   clearInterval(timer);
-  timerEl.innerText = "...";
+  timerEl.innerText = "Game Over";
   reset();
 }
 function reset() {
