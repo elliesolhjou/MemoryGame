@@ -2,7 +2,7 @@ I've opted for the Concentration (Memory Game), and I've designed a web browser 
 
 ![Alt text](./images/Project%20Wireframe.jpeg)
 
-Pseudocode:
+**Pseudocode:**
 
 1. Define Variables  
    . Global Variables  
@@ -34,7 +34,7 @@ Pseudocode:
 
 4. Define Functions
 
-UNDER THE HOOD/HELPER FUNCTIONS:
+**UNDER THE HOOD/HELPER FUNCTIONS:**
 
     .HIGHEST-LEVEL FUNCTION: startGame() - activated by hitting start button and would initialize shuffleCards() and after 3 seconds run init function
 
@@ -50,7 +50,7 @@ UNDER THE HOOD/HELPER FUNCTIONS:
 
             - render() updates the score DOM so user can see the score
 
-UI FUNCTIONS - WAITS ON USER TO TAKE ACTIONS
+**UI FUNCTIONS - WAITS ON USER TO TAKE ACTIONS**
 . handleBtnClick() with logical statements, it is the brain of the model and decides if two selcted cards(buttons) by the user are matched or not.
 
 FOR BETTER UNDERSTANDING OF THE READER A FLOWCHART INDICATING THE GAME FLOW HAS BEEN PROVIDED.
