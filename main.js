@@ -4,7 +4,16 @@ console.log("js is loaded");
 const INIT_STATE = {
   score: 5,
 };
-
+let score;
+let state;
+let timer;
+let timerInterval;
+let seconds = 0;
+state = { ...INIT_STATE };
+let flippedCards = [];
+let cards = [];
+const numRows = 6;
+const numColumns = 6;
 const imagesArray = [
   "images/A.png",
   "images/B.png",
@@ -44,38 +53,26 @@ const imagesArray = [
   "images/M.png",
 ];
 
-let score;
-let state;
-let timer;
-let timerInterval;
-let seconds = 0;
-state = { ...INIT_STATE };
-let flippedCards = [];
-let cards = [];
-
 // 2. DOM Captures
 const scoreStatEl = document.querySelector("#score-stat");
-const startEl = document.querySelector("#start-btn");
+
 const startBtnEl = document.getElementById("start-btn");
 const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 const resetBtnEl = document.querySelector("#reset-btn");
 const gridContainerEl = document.getElementById("grid-container");
-console.log(gridContainerEl);
 
-console.log(startBtnEl);
-const numRows = 6;
-const numColumns = 6;
+// const numRows = 6;
+// const numColumns = 6;
 
 startBtnEl.addEventListener("click", startGame);
 resetBtnEl.addEventListener("click", reset);
 
 function startGame() {
   console.log("starting game");
-  // setTimeout(function(){cards.style.visibility = "hidden"}, 2000);
   cardLayout();
   setTimeout(init, 10);
-  // showCards(cards)
+  //showCardLayout for 2 Seconds
 }
 
 function cardLayout() {
@@ -110,14 +107,9 @@ function gridMaker() {
       gridItemContent.classList.add("solid-color");
       gridItemContent.classList.add("card-front");
       gridItemContent.style.zIndex = "10";
-      cards.push(gridItemContent);
-      console.log(cards);
 
       const randomImagePath = shuffledArray[0];
-      //console.log(randomImagePath);
-
       const imageIdLetters = randomImagePath.split("");
-      //console.log(imageIdLetters)
       const imageIdFinder = imageIdLetters.filter(function (imageIdLetter) {
         return imageIdLetter === imageIdLetter.toUpperCase();
       });
@@ -126,28 +118,18 @@ function gridMaker() {
         gridItem.setAttribute("id", imageIdFinder[1]);
         gridItemContent.setAttribute("id", imageIdFinder[1]);
       }
-      //console.log(randomImagePath);
-      //console.log(typeof randomImagePath);
-      //console.log(shuffledArray.length);
-      shuffledArray.shift();
-      //console.log(shuffledArray.length);
-      //console.log(shuffledArray);
 
+      shuffledArray.shift();
       gridItem.style.backgroundImage = `url('${randomImagePath}')`;
       gridItem.style.backgroundSize = "cover";
 
       gridContainerEl.appendChild(gridItem);
-      //gridItem.addEventListener("click", handleBtnClick);
       gridItem.appendChild(gridItemContent);
       gridItemContent.addEventListener("click", handleBtnClick);
     }
   }
 }
 
-// function showCards(card){
-//   console.log("show card should work")
-
-// }
 //eventlistener
 
 function handleBtnClick(e) {
@@ -176,12 +158,11 @@ function handleBtnClick(e) {
         console.log("not Matching Cards");
         score = parseInt(scoreStatEl.innerText) - 1;
         scoreStatEl.innerText = score;
-        state.score = score; // to update state object for runGame()
+        state.score = score;
         console.log(score);
         setTimeout(() => {
           flippedCards[0].classList.remove("flipped");
           flippedCards[1].classList.remove("flipped");
-          alert("Wrong Guess");
           setTimeout(() => {
             flippedCards[0].style.visibility = "visible";
             flippedCards[1].style.visibility = "visible";
@@ -202,7 +183,11 @@ function timerDisplay() {
   console.log("timer should start");
   timer = setInterval(function () {
     seconds++;
-    timerEl.innerText =`Timer: ${seconds} seconds`;
+    if (seconds === 1) {
+      timerEl.innerText = `Timer: ${seconds} second`;
+    } else {
+      timerEl.innerText = `Timer: ${seconds} seconds`;
+    }
   }, 1000);
 }
 function statusChecker() {
@@ -215,7 +200,7 @@ function runGame() {
   let keepRunning = true;
   let currentStats = [];
   for (let key in state) {
-    state[key] = score; //to update score
+    state[key] = score;
     currentStats.push(score);
     if (score <= 0) {
       keepRunning = false;
@@ -234,7 +219,6 @@ function render() {
 
 function gameOver() {
   console.log("game over works");
-  alert("GAME OVER");
   clearInterval(timer);
   timerEl.innerText = "Game Over";
   reset();

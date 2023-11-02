@@ -369,43 +369,43 @@ function reset() {
 // }
 
 
-// function gridMaker() {
-//   for (let row = 0; row < numRows; row++) {
-//     for (let col = 0; col < numColumns; col++) {
-//       const gridItem = document.createElement("div");
-//       gridItem.classList.add("grid-item");
-//       gridItem.classList.add("card-front");
-//       gridItem.classList.add("flip");
+function gridMaker() {
+  for (let row = 0; row < numRows; row++) {
+    for (let col = 0; col < numColumns; col++) {
+      const gridItem = document.createElement("div");
+      gridItem.classList.add("grid-item");
+      gridItem.classList.add("card-front");
+      gridItem.classList.add("flip");
 
-//       const gridItemContent = document.createElement("div");
-//       gridItemContent.classList.add("solid-color");
-//       gridItemContent.classList.add("card-front");
-//       gridItemContent.style.zIndex = "10";
-//       //  ICEBOX
-//       // cards.push(gridItemContent);
-//       // console.log(cards)
+      const gridItemContent = document.createElement("div");
+      gridItemContent.classList.add("solid-color");
+      gridItemContent.classList.add("card-front");
+      gridItemContent.style.zIndex = "10";
+      //  ICEBOX
+      // cards.push(gridItemContent);
+      // console.log(cards)
 
-//       const randomImagePath = shuffledArray[0];
-//       const imageIdLetters = randomImagePath.split("");
-//       const imageIdFinder = imageIdLetters.filter(function (imageIdLetter) {
-//         return imageIdLetter === imageIdLetter.toUpperCase();
-//       });
-//       console.log(imageIdFinder[1]);
-//       if (imageIdFinder) {
-//         gridItem.setAttribute("id", imageIdFinder[1]);
-//         gridItemContent.setAttribute("id", imageIdFinder[1]);
-//       }
-//       shuffledArray.shift();
-//       gridItem.style.backgroundImage = `url('${randomImagePath}')`;
-//       gridItem.style.backgroundSize = "cover";
+      const randomImagePath = shuffledArray[0];
+      const imageIdLetters = randomImagePath.split("");
+      const imageIdFinder = imageIdLetters.filter(function (imageIdLetter) {
+        return imageIdLetter === imageIdLetter.toUpperCase();
+      });
+      console.log(imageIdFinder[1]);
+      if (imageIdFinder) {
+        gridItem.setAttribute("id", imageIdFinder[1]);
+        gridItemContent.setAttribute("id", imageIdFinder[1]);
+      }
+      shuffledArray.shift();
+      gridItem.style.backgroundImage = `url('${randomImagePath}')`;
+      gridItem.style.backgroundSize = "cover";
 
-//       gridContainerEl.appendChild(gridItem);
-//       //gridItem.addEventListener("click", handleBtnClick);
-//       gridItem.appendChild(gridItemContent);
-//       gridItemContent.addEventListener("click", handleBtnClick);
-//     }
-//   }
-// }
+      gridContainerEl.appendChild(gridItem);
+      //gridItem.addEventListener("click", handleBtnClick);
+      gridItem.appendChild(gridItemContent);
+      gridItemContent.addEventListener("click", handleBtnClick);
+    }
+  }
+}
 
 
 
