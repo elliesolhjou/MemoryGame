@@ -151,7 +151,11 @@ button:focus {
 
 .solid-color {
   background-color: red;
-  opacity: 0.5;
+  background-image: url(./images/person-hilariously-photoshops-animals-onto-random-things-xx-photos-25.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
   width: 12.5vw;
   height: 12.5vw;
 }

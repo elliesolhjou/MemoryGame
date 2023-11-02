@@ -5,15 +5,6 @@ const INIT_STATE = {
   score: 5,
 };
 
-// const gridCells = [
-//   ["0", "0", "0", "0", "0", "0"],
-//   ["0", "0", "0", "0", "0", "0"],
-//   ["0", "0", "0", "0", "0", "0"],
-//   ["0", "0", "0", "0", "0", "0"],
-//   ["0", "0", "0", "0", "0", "0"],
-//   ["0", "0", "0", "0", "0", "0"],
-// ];
-
 const imagesArray = [
   "images/A.png",
   "images/B.png",
@@ -55,10 +46,15 @@ const imagesArray = [
 
 let score;
 let state;
-let timer; //setInterval Id
+let timer; 
 let timerInterval;
 let seconds = 0;
 state = { ...INIT_STATE };
+let flippedCards = [];
+let cards = [];
+
+
+
 
 // 2. DOM Captures
 const scoreStatEl = document.querySelector("#score-stat");
@@ -71,7 +67,7 @@ const resetBtnEl = document.querySelector("#reset-btn");
 const gridContainerEl = document.getElementById("grid-container");
 //const blankCardContainerEl = document.getElementsByClassName("blank-card-container");
 console.log(gridContainerEl);
-//console.log(blankCardContainerEl);
+
 console.log(startBtnEl);
 const numRows = 6;
 const numColumns = 6;
@@ -81,15 +77,16 @@ resetBtnEl.addEventListener("click", reset);
 
 function startGame() {
   console.log("starting game");
+  // setTimeout(function(){cards.style.visibility = "hidden"}, 2000); 
   cardLayout();
   setTimeout(init, 10);
+  // showCards(cards)
 }
 
 function cardLayout() {
   console.log("card layout is done and grid is made");
   shuffleImages(imagesArray);
   gridMaker(shuffleImages);
-  //smartCells();
 }
 
 let shuffledArray = [];
@@ -106,7 +103,7 @@ function shuffleImages(arr) {
   return shuffledArray;
 }
 
-console.log(gridContainerEl);
+
 function gridMaker() {
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numColumns; col++) {
@@ -119,6 +116,8 @@ function gridMaker() {
       gridItemContent.classList.add("solid-color");
       gridItemContent.classList.add("card-front");
       gridItemContent.style.zIndex = "10";
+      cards.push(gridItemContent);
+      console.log(cards)
 
       const randomImagePath = shuffledArray[0];
       //console.log(randomImagePath);
@@ -151,13 +150,13 @@ function gridMaker() {
   }
 }
 
+// function showCards(card){
+//   console.log("show card should work")
+  
+// }
 //eventlistener
 
-// function hideImage(e){
-//   handleBtnClick(e)
-// }
 
-let flippedCards = [];
 
 function handleBtnClick(e) {
   const card = e.target;
@@ -193,22 +192,24 @@ function handleBtnClick(e) {
         setTimeout(() => {
           flippedCards[0].classList.remove("flipped");
           flippedCards[1].classList.remove("flipped");
+          alert("Wrong Guess");
 
           // Set a timeout to make both blank cards visible again
           setTimeout(() => {
             flippedCards[0].style.visibility = "visible";
             flippedCards[1].style.visibility = "visible";
             flippedCards = [];
-          }, 200);
-        }, 500);
+          }, 100);
+        }, 400);
       }
     }
+    return card;
   }
 }
 function init() {
   console.log("initializedd helper functions");
+  //showCards(cards);
   timerDisplay();
-  //setTimeout(()=>card.style.visibility="hidden",1500)
   statusChecker();
   render();
 }
@@ -245,8 +246,10 @@ function render() {
   console.log("render should work");
   state.score = parseInt(scoreStatEl.innerText);
 }
+
 function gameOver() {
   console.log("game over works");
+  alert("GAME OVER");
   clearInterval(timer);
   timerEl.innerText = "...";
   reset();
