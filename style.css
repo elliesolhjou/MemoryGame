@@ -7,6 +7,7 @@ https://colorhunt.co/palette/f6d7a7f6eabec8e3d487aaaa/?ref=tab */
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
 body {
   display: flex;
   justify-content: center;
@@ -135,6 +136,7 @@ button:focus {
 
 .solid-color{
     background-color: red;
+    opacity: .5;
     width: 12.5vw;
     height: 12.5vw;
 }

@@ -118,11 +118,12 @@ function gridMaker() {
 
       const gridItemContent = document.createElement("div")
       gridItemContent.classList.add("solid-color")
+      gridItemContent.classList.add("card-front")
       gridItemContent.style.zIndex="10"
 
       const randomImagePath = shuffledArray[0];
       //console.log(randomImagePath);
-      
+
       const imageIdLetters = randomImagePath.split("");
       //console.log(imageIdLetters)
       const imageIdFinder = imageIdLetters.filter(function (imageIdLetter) {
@@ -143,28 +144,30 @@ function gridMaker() {
       gridItem.style.backgroundImage = `url('${randomImagePath}')`;
       gridItem.style.backgroundSize = "cover";
 
-      gridItem.appendChild(gridItemContent)
       gridContainerEl.appendChild(gridItem);
-      gridItem.addEventListener("click", handleBtnClick);
+      //gridItem.addEventListener("click", handleBtnClick);
+      gridItem.appendChild(gridItemContent)
+      gridItemContent.addEventListener("click", handleBtnClick)
    
     }
   }
 }
-document.querySelectorAll(".solid-card").forEach(function(card){
-  card.addEventListener.onclick=function(e){
-  gridItemContent.visibility="hidden"
-  }
-} )
 
-let flippedCards = [];
 
 //eventlistener
 
+// function hideImage(e){
+//   handleBtnClick(e)
+// }
+
+let flippedCards = [];
+
 function handleBtnClick(e) {
   const card = e.target;
+  card.style.visibility="hidden"
   card.classList.remove("card-front");
-  card.classList.add("card-back");
-  //console.log(card);
+  //card.classList.add("card-back");
+  console.log(card);
   if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
     card.classList.add("flipped");
     flippedCards.push(card);
@@ -181,25 +184,31 @@ function handleBtnClick(e) {
         console.log(state.score);
         flippedCards[0].style.visibility = "hidden";        
         flippedCards[1].style.visibility = "hidden";
-      } else {
         flippedCards[0].classList.remove("flipped");
-        flippedCards[1].classList.remove("flipped");
+        flippedCards[1].classList.remove("flipped")
+        flippedCards = []
+
+      } else {
         console.log("not Matching Cards");
         score = parseInt(scoreStatEl.innerText) - 1;
         scoreStatEl.innerText = score;
         state.score = score; // to update state object for runGame()
         console.log(score);
-        flippedCards[0].style.visibility = "visible";
-        flippedCards[1].style.visibility = "visible";
-        
-          //setTimeout
-        //console.log(state.score)
+        setTimeout(() => {
+          flippedCards[0].classList.remove("flipped");
+          flippedCards[1].classList.remove("flipped");
+  
+          // Set a timeout to make both cards visible again
+          setTimeout(() => {
+            flippedCards[0].style.visibility = "visible";
+            flippedCards[1].style.visibility = "visible";
+            flippedCards = []
+          }, 1);
+        }, 500);
       }
-      flippedCards = [];
     }
   }
 }
-
 function init() {
   console.log("initializedd helper functions");
   timerDisplay();
@@ -253,5 +262,5 @@ function reset() {
   clearInterval(statusStat);
   setTimeout(function () {
     window.location.reload();
-  }, 1000);
+  }, 500);
 }
