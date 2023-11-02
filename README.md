@@ -1,4 +1,4 @@
-<span style="font-size: 40px; : center">**Concentration Game** </span>
+<span style="font-size: 40px; : center">**Memory Game** </span>
 
 <span style="font-size: 17px;">**Description**</span>  
 Concentration is a classic card-matching game that challenges your memory and concentration. The game consists of a set of face-down cards, and the objective is to find pairs of matching cards by flipping them over two at a time. The game is won when all the pairs have been successfully matched.
@@ -22,11 +22,11 @@ HTML, CSS, JavaScript, Bootstrap and Flex
 <span style="font-size: 18px;">**Acknowledgements** </span>  
 I would like to express my gratitude to the following individuals who have contributed to or inspired this project:
 
-- Jan Horak: For their invaluable guidance, support, and mentorship throughout the development process.
+- Jan Horak: For his invaluable guidance, support, and mentorship throughout the development process.
 - Other instructional team members: For their expertise, feedback, and assistance that greatly enriched this project.
 
 Thank you for your valuable contributions and support!
-I would like to acknowledge and express my gratitude to the following sources for their contributions to this project:
+I would like to express my acknowledgement to the following sources for their contributions to this project:
 
 - [Chive](https://www.example.com/chive): For providing photos and images used in the project.
 - [Lucid](https://www.example.com/lucid): For wireframing and design resources.
