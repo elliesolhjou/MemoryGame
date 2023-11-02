@@ -157,17 +157,20 @@ button:focus {
 }
 
 @media (max-width: 600px) {
+  body{
+    background-color:#FFC436 ;
+  }
   .container {
-    background-color: pink;
+    background-color: #FFC436;
   }
   h1 {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     letter-spacing: 0.01rem;
   }
   button {
-    padding: 5px 5px;
+    padding: 8px 8px;
     color: whitesmoke;
-    background-color: blue;
+    background-color:rgb(1, 116, 190);
     border: none;
     font-size: 0.75em;
     letter-spacing: 0em;
@@ -182,7 +185,7 @@ button:focus {
     text-transform: uppercase;
     letter-spacing: 0.07rem;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     margin-top: 10px;
     flex-wrap: wrap;
@@ -214,17 +217,20 @@ button:focus {
   }
 }
 @media (min-width: 601px) and (max-width: 689px) {
+  body{
+    background-color:#FFC436 ;
+  }
   .container {
-    background-color: pink;
+    background-color: #FFC436;
   }
   h1 {
-    font-size: 1.5rem;
+    font-size: 2.8rem;
     letter-spacing: 0.01rem;
   }
   button {
     padding: 5px 5px;
     color: whitesmoke;
-    background-color: blue;
+    background-color: rgb(12, 53, 106);
     border: none;
     font-size: 0.75em;
     letter-spacing: 0em;
@@ -272,13 +278,20 @@ button:focus {
 }
 
 @media (min-width: 690px) and (max-width: 767px){
+  body{
+    background-color:#445069 ;
+  }
+  .container {
+    background-color:#445069;
+  }
   h1 {
     font-size: 3rem;
     letter-spacing: 0rem;
+    color: sandybrown;
   }
   h3 {
     font-size: 1.5rem;
-    color: black;
+    color: sandybrown;
     text-transform: uppercase;
     display: flex;
     justify-content: center;
@@ -287,8 +300,8 @@ button:focus {
   }
   button {
     padding: 15px 15px;
-    color: whitesmoke;
-    background-color: green;
+    color:whitesmoke;
+    background-color: F7E987;
     border: none;
     font-size: 1.1rem;
     font-weight: 400;
@@ -324,8 +337,14 @@ button:focus {
 }
 
 @media (min-width: 768px) and (max-width: 924px){
+  body{
+    background-color: #6A7EFC; ;
+  }
+  .container {
+    background-color: #6A7EFC;
+  }
   h1 {
-    font-size: 5rem;
+    font-size: 3rem;
     letter-spacing: 0rem;
   }
   h3 {
@@ -340,7 +359,7 @@ button:focus {
   button {
     padding: 18px 18px;
     color: whitesmoke;
-    background-color: green;
+    background-color: #494953;
     border: none;
     font-size: 1.1rem;
     font-weight: 400;
