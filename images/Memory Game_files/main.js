@@ -2,7 +2,7 @@ console.log("js is loaded");
 
 // 1. Define Variables
 const INIT_STATE = {
-  score: 5,
+  score: 20,
 };
 
 const imagesArray = [
@@ -46,21 +46,26 @@ const imagesArray = [
 
 let score;
 let state;
-let timer;
+let timer; 
 let timerInterval;
 let seconds = 0;
 state = { ...INIT_STATE };
 let flippedCards = [];
 let cards = [];
 
+
+
+
 // 2. DOM Captures
 const scoreStatEl = document.querySelector("#score-stat");
 const startEl = document.querySelector("#start-btn");
+//const cards = document.querySelectorAll(".card");
 const startBtnEl = document.getElementById("start-btn");
 const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 const resetBtnEl = document.querySelector("#reset-btn");
 const gridContainerEl = document.getElementById("grid-container");
+//const blankCardContainerEl = document.getElementsByClassName("blank-card-container");
 console.log(gridContainerEl);
 
 console.log(startBtnEl);
@@ -72,7 +77,7 @@ resetBtnEl.addEventListener("click", reset);
 
 function startGame() {
   console.log("starting game");
-  // setTimeout(function(){cards.style.visibility = "hidden"}, 2000);
+  // setTimeout(function(){cards.style.visibility = "hidden"}, 2000); 
   cardLayout();
   setTimeout(init, 10);
   // showCards(cards)
@@ -98,6 +103,7 @@ function shuffleImages(arr) {
   return shuffledArray;
 }
 
+
 function gridMaker() {
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numColumns; col++) {
@@ -111,7 +117,7 @@ function gridMaker() {
       gridItemContent.classList.add("card-front");
       gridItemContent.style.zIndex = "10";
       cards.push(gridItemContent);
-      console.log(cards);
+      console.log(cards)
 
       const randomImagePath = shuffledArray[0];
       //console.log(randomImagePath);
@@ -146,13 +152,18 @@ function gridMaker() {
 
 // function showCards(card){
 //   console.log("show card should work")
-
+  
 // }
 //eventlistener
+
+
 
 function handleBtnClick(e) {
   const card = e.target;
   card.style.visibility = "hidden";
+  // card.classList.remove("card-front");
+  // //card.classList.add("card-back");
+  // console.log(card);
   if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
     card.classList.add("flipped");
     flippedCards.push(card);
@@ -181,7 +192,12 @@ function handleBtnClick(e) {
         setTimeout(() => {
           flippedCards[0].classList.remove("flipped");
           flippedCards[1].classList.remove("flipped");
-          alert("Wrong Guess");
+          const warning=alert("Wrong Guess")
+          // setTimeout(function(){
+          //   warning.close()
+          // },200)
+          ;
+          // Set a timeout to make both blank cards visible again
           setTimeout(() => {
             flippedCards[0].style.visibility = "visible";
             flippedCards[1].style.visibility = "visible";
