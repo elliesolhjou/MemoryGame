@@ -1,89 +1,140 @@
 /* favorite colors : #87AAAA#C8E3D4#F6EABE#F6D7A7
 https://colorhunt.co/palette/f6d7a7f6eabec8e3d487aaaa/?ref=tab */
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #F6D7A7;
-    border: 12px purple solid;
-}
-
-.container{
-    border: 12px red solid ;
-    display: flex;
-    position:relative;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 30px;
-    background-color: #C8E3D4 ;
-    padding: 40px 60px;
-}
-h1{
-    font-size: 5em;
-    color: 0F2C59;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-}
-button{
-    padding: 15px 20px;
-    color: #F2C59;
-    background-color: #ffffff71;
-    border-radius: none;
-    border: none;
-    font-size: 1.5em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: 600;
-}
-button:focus{
-    color: #ffffff71;
-    background-color: #F2C59;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f6d7a7;
+  border: 12px purple solid;
 }
 
-#grid-container{
-    display: flex;
-    flex-wrap: wrap;
-    height: 440px;
-    width: 440px;
-    gap: 10px;
-    transform-style: preserve-3d;
-    perspective: 500;
-    border: 10px rgba(106, 255, 0, 0.788) solid;
-} 
+.container {
+  border: 12px red solid;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  background-color: brown;
+  padding: 40px 60px;
+}
+h1 {
+  font-size: 5em;
+  color: 0F2C59;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+button {
+  padding: 15px 20px;
+  color: white;
+  background-color: #ffffff71;
+  border-radius: none;
+  border: none;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+}
+button:focus {
+  color: #ffffff71;
+  background-color: #F2C591;
+}
 
-.grid-item{
-    height: 100px;
-    width: 100px;
-    border: 5px purple solid;
+#grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 80vw;
+  width: 80vw;
+  gap: 10px;
+  transform-style: preserve-3d;
+  perspective: 500;
+  border: 10px rgba(106, 255, 0, 0.788) solid;
+}
+
+.grid-item {
+  height: 12.5vw;
+  width: 12.5vw;
+  border: 5px purple solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: 0.25s;
+  /* backface-visibility: hidden;
+  transform-style: preserve-3d; */
+}
+
+ .blank-card{
+    height: 12.5vw;
+    width: 12.5vw;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    transition: .25s;
+    transition: 0.25s;
+    background-image:url(./images/person-hilariously-photoshops-animals-onto-random-things-xx-photos-25.webp);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}    
+/* .grid-item:after {
+  content: " ";
+  position: absolute;
+  
+  inset: 0;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+} 
+.card-front {
+  background-color: black;
+  opacity:0
 }
 
-.grid-item:after{
-    content: " ";
-    position: absolute;
-    inset: 0;
-    background-color:#87AAAA ;
-    /* opacity: .85; */
-    transition: .25s;
-    transform: rotateY(0deg);
-    backface-visibility: hidden;
+.card-front{
+  transform: rotateY(180deg);
+}  */
+
+/* 
+.grid-item {
+  height: 100px;
+  background-color: #ccc;
+  display: inline-block;
+  margin: 5px;
+  perspective: 1000px; 
+  transition: transform 0.5s; 
 }
-.card-front::after{
-    transform: rotateY(180deg);
+
+.grid-item.flipped {
+
+  background-color: transparent; 
 }
-.grid-item.card-front{
-    transform: rotateY(0deg);
+
+
+.grid-item.flipped .front {
+  display: block;
+
+} */
+.no-color{
+    background-color: red;
+    opacity: .5;
+    width: 12.5vw;
+    height: 12.5vw;
+}
+
+.solid-color{
+    background-color: red;
+    width: 12.5vw;
+    height: 12.5vw;
 }

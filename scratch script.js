@@ -68,7 +68,10 @@ const startBtnEl = document.getElementById("start-btn");
 const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 const resetBtnEl = document.querySelector("#reset-btn");
-//console.log(startBtnEl)
+const gridContainerEl = document.getElementById("grid-container");
+console.log(startBtnEl);
+const numRows = 6;
+const numColumns = 6;
 
 startBtnEl.addEventListener("click", startGame);
 resetBtnEl.addEventListener("click", reset);
@@ -81,13 +84,13 @@ function startGame() {
 
 function cardLayout() {
   console.log("card layout is done and grid is made");
-  shuffleArray(imagesArray);
-  gridMaker(shuffledArray, 6);
-  smartCells();
+  shuffleImages(imagesArray);
+  gridMaker(shuffleImages);
+  //smartCells();
 }
 
 let shuffledArray = [];
-function shuffleArray(arr) {
+function shuffleImages(arr) {
   const generatedIndex = [];
   while (generatedIndex.length !== arr.length) {
     console.log(generatedIndex.length);
@@ -100,42 +103,70 @@ function shuffleArray(arr) {
   return shuffledArray;
 }
 
-const grid = [];
-function gridMaker(shuffledArray, chunkSize) {
-  for (let i = 0; i < shuffledArray.length; i += chunkSize) {
-    grid.push(shuffledArray.slice(i, i + chunkSize));
+console.log(gridContainerEl);
+function gridMaker() {
+  for (let row = 0; row < numRows; row++) {
+    for (let col = 0; col < numColumns; col++) {
+      const gridItem = document.createElement("div");
+      gridItem.classList.add("grid-item");
+      gridItem.classList.add("card-front");
+      gridItem.classList.add("flip");
+      const randomImagePath = shuffledArray[0];
+      console.log(randomImagePath);
+      const imageIdLetters = randomImagePath.split("");
+      //console.log(imageIdLetters)
+      const imageIdFinder = imageIdLetters.filter(function (imageIdLetter) {
+        return imageIdLetter === imageIdLetter.toUpperCase();
+      });
+      console.log(imageIdFinder[1]);
+      if (imageIdFinder) {
+        gridItem.setAttribute("id", imageIdFinder[1]);
+      }
+      //console.log(randomImagePath);
+      //console.log(typeof randomImagePath);
+      //console.log(shuffledArray.length);
+      shuffledArray.shift();
+      //console.log(shuffledArray.length);
+      //console.log(shuffledArray);
+      gridItem.style.backgroundImage = `url('${randomImagePath}')`;
+      gridItem.style.backgroundSize = "cover";
+      gridContainerEl.appendChild(gridItem);
+      gridItem.addEventListener("click", handleBtnClick);
+    }
   }
 }
 
-function smartCells() {
-  grid.forEach(function (cell) {
-    for (let i = 0; i < cell.length; i++) {
-      if (typeof cell[i] === "string") {
-        const img = document.createElement("img");
-        img.setAttribute("src", cell[i]);
-        img.setAttribute("class", "card-front");
-        //trying to name an id based on tehimage file name
-        const letterArray = cell[i].split("");
-        const capitalLetter = letterArray.filter(function (letter) {
-          //to find cell[i] name
-          return letter === letter.toUpperCase();
-          console.lof(capitalLetter);
-        });
-        if (capitalLetter) {
-          img.setAttribute("id", capitalLetter[1]);
-          document.getElementById("card-front").appendChild(img);
-          img.addEventListener("click", handleBtnClick);
-        }
-      }
-    }
-  });
-}
+// function smartCells() {
+//   grid.forEach(function (cell) {
+//     for (let i = 0; i < cell.length; i++) {
+//       if (typeof cell[i] === "string") {
+//         const img = document.createElement("img");
+//         img.setAttribute("src", cell[i]);
+//         img.setAttribute("class", "card-front");
+//         //trying to name an id based on tehimage file name
+//         const letterArray = cell[i].split("");
+//         const capitalLetter = letterArray.filter(function (letter) {
+//           //to find cell[i] name
+//           return letter === letter.toUpperCase();
+//           console.lof(capitalLetter);
+//         });
+//         if (capitalLetter) {
+//           img.setAttribute("id", capitalLetter[1]);
+//           document.getElementById("card-front").appendChild(img);
+//           img.addEventListener("click", handleBtnClick);
+//         }
+//       }
+//     }
+//   });
+// }
 let flippedCards = [];
 
 //eventlistener
 
 function handleBtnClick(e) {
   const card = e.target;
+  card.classList.remove("card-front");
+  card.classList.add("card-back");
   console.log(card);
   if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
     card.classList.add("flipped");

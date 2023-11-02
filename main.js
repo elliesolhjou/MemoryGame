@@ -69,12 +69,16 @@ const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 const resetBtnEl = document.querySelector("#reset-btn");
 const gridContainerEl = document.getElementById("grid-container");
+//const blankCardContainerEl = document.getElementsByClassName("blank-card-container");
+console.log(gridContainerEl);
+//console.log(blankCardContainerEl);
 console.log(startBtnEl);
 const numRows = 6;
 const numColumns = 6;
 
 startBtnEl.addEventListener("click", startGame);
 resetBtnEl.addEventListener("click", reset);
+
 
 function startGame() {
   console.log("starting game");
@@ -110,8 +114,15 @@ function gridMaker() {
       const gridItem = document.createElement("div");
       gridItem.classList.add("grid-item");
       gridItem.classList.add("card-front");
+      gridItem.classList.add("flip");
+
+      const gridItemContent = document.createElement("div")
+      gridItemContent.classList.add("solid-color")
+      gridItemContent.style.zIndex="10"
+
       const randomImagePath = shuffledArray[0];
-      console.log(randomImagePath);
+      //console.log(randomImagePath);
+      
       const imageIdLetters = randomImagePath.split("");
       //console.log(imageIdLetters)
       const imageIdFinder = imageIdLetters.filter(function (imageIdLetter) {
@@ -120,6 +131,7 @@ function gridMaker() {
       console.log(imageIdFinder[1]);
       if (imageIdFinder) {
         gridItem.setAttribute("id", imageIdFinder[1]);
+        gridItemContent.setAttribute("id", imageIdFinder[1])
       }
       //console.log(randomImagePath);
       //console.log(typeof randomImagePath);
@@ -127,43 +139,32 @@ function gridMaker() {
       shuffledArray.shift();
       //console.log(shuffledArray.length);
       //console.log(shuffledArray);
+
       gridItem.style.backgroundImage = `url('${randomImagePath}')`;
+      gridItem.style.backgroundSize = "cover";
+
+      gridItem.appendChild(gridItemContent)
       gridContainerEl.appendChild(gridItem);
       gridItem.addEventListener("click", handleBtnClick);
+   
     }
   }
 }
+document.querySelectorAll(".solid-card").forEach(function(card){
+  card.addEventListener.onclick=function(e){
+  gridItemContent.visibility="hidden"
+  }
+} )
 
-// function smartCells() {
-//   grid.forEach(function (cell) {
-//     for (let i = 0; i < cell.length; i++) {
-//       if (typeof cell[i] === "string") {
-//         const img = document.createElement("img");
-//         img.setAttribute("src", cell[i]);
-//         img.setAttribute("class", "card-front");
-//         //trying to name an id based on tehimage file name
-//         const letterArray = cell[i].split("");
-//         const capitalLetter = letterArray.filter(function (letter) {
-//           //to find cell[i] name
-//           return letter === letter.toUpperCase();
-//           console.lof(capitalLetter);
-//         });
-//         if (capitalLetter) {
-//           img.setAttribute("id", capitalLetter[1]);
-//           document.getElementById("card-front").appendChild(img);
-//           img.addEventListener("click", handleBtnClick);
-//         }
-//       }
-//     }
-//   });
-// }
 let flippedCards = [];
 
 //eventlistener
 
 function handleBtnClick(e) {
   const card = e.target;
-  console.log(card);
+  card.classList.remove("card-front");
+  card.classList.add("card-back");
+  //console.log(card);
   if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
     card.classList.add("flipped");
     flippedCards.push(card);
@@ -173,22 +174,13 @@ function handleBtnClick(e) {
       console.log(card1Id, card2Id);
       if (card1Id === card2Id) {
         console.log(flippedCards);
-        //console.log(flippedCards[0]);
-        //nested if statements -> now we add second choice to the array let's compare these two
-        // we need to declare if statement again in order to make the event listener to reach  the point to compare two elements -hala ke push kardim o length dota shod: biain compare konim
-
-        //how to make flipped match cards stay????
         console.log("Matching Cards");
         score = parseInt(scoreStatEl.innerText) + 1;
         scoreStatEl.innerText = score;
         state.score = score;
         console.log(state.score);
-        flippedCards[0].style.visibility = "hidden";
+        flippedCards[0].style.visibility = "hidden";        
         flippedCards[1].style.visibility = "hidden";
-        //flippedCards[0].setAttribute("disabled", "true");
-        //flippedCards[0].style.display="none"
-        //flippedCards[1].style.display="none"
-        //flippedCards[1].setAttribute("disabled", "true");
       } else {
         flippedCards[0].classList.remove("flipped");
         flippedCards[1].classList.remove("flipped");
@@ -199,6 +191,8 @@ function handleBtnClick(e) {
         console.log(score);
         flippedCards[0].style.visibility = "visible";
         flippedCards[1].style.visibility = "visible";
+        
+          //setTimeout
         //console.log(state.score)
       }
       flippedCards = [];
