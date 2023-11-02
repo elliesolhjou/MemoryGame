@@ -1,4 +1,4 @@
-I've opted for the Concentration (Memory Game), and I've designed a web browser game called "KID'S MEMORY GAME," specifically tailored for children aged 4 or younger.
+I've opted for the Concentration (Memory Game), and I've designed a web browser game called "MEMORY GAME," specifically tailored for children aged 4 or younger.
 
 ![Alt text](./images/Project%20Wireframe.jpeg)
 
