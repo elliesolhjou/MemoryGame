@@ -518,3 +518,16 @@ function gridMaker() {
 //     window.location.reload();
 //   }, 1000);
 }
+
+/* .blank-card {
+  height: 12.5vw;
+  width: 12.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: 0.25s;
+  background-image: url(./images/person-hilariously-photoshops-animals-onto-random-things-xx-photos-25.webp);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+} */

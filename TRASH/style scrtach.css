@@ -79,8 +79,21 @@ button:focus {
   transition: 0.25s;
 }
 
+/* .blank-card {
+    height: 12.5vw;
+    width: 12.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.25s;
+    background-image: url(./images/person-hilariously-photoshops-animals-onto-random-things-xx-photos-25.webp);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  } */
+
 .solid-color {
-  background-color: rgba(221, 208, 208, 0.694);
+  background-color: red;
   background-image: url(./images/person-hilariously-photoshops-animals-onto-random-things-xx-photos-25.webp);
   background-position: center;
   background-repeat: no-repeat;
@@ -163,7 +176,7 @@ button:focus {
     font-weight: 400;
     flex-wrap: wrap;
     /* justify-content: center;
-    align-items: center; */
+      align-items: center; */
   }
   h3 {
     font-size: 1em;
