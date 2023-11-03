@@ -9,7 +9,7 @@ Concentration is a classic card-matching game that challenges your memory and co
  When you start the game, you'll be presented with a grid of 36 face-down cards.
 Click on any two cards to flip them over and reveal their content.
 If the two cards match, they will remain face-up, and you'll earn a point.
-If the cards do not match, they will be flipped back face-down.
+If the cards do not match, they will be flipped back face-down and you lose one point.
 Continue to find matching pairs until all cards are face-up, and you win the game. The game begins with an initial score of 20, and if your score reaches zero, the game is over.
 
 ![Alt text](./images/image-1.png)
