@@ -55,7 +55,6 @@ const imagesArray = [
 
 // 2. DOM Captures
 const scoreStatEl = document.querySelector("#score-stat");
-
 const startBtnEl = document.getElementById("start-btn");
 const timerEl = document.getElementById("timer-stat");
 const btnWrapperEl = document.querySelectorAll("button-wrapper button");
