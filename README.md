@@ -17,7 +17,7 @@ Continue to find matching pairs until all cards are face-up, and you win the gam
 <span style="font-size: 24px;">**Concentration Gameplay** </span>
 
 <span style="font-size: 17px;">**Technologies Used** </span>  
-HTML, CSS, JavaScript, Bootstrap and Flex
+HTML, CSS, JavaScript, Flex
 
 <span style="font-size: 18px;">**Acknowledgements** </span>  
 I would like to express my gratitude to the following individuals who have contributed to or inspired this project:

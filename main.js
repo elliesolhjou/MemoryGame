@@ -205,7 +205,7 @@ function runGame() {
       gameOver();
       scoreStatEl.innerText = "0";
     }
-  }
+  } 
   return keepRunning;
 }
 function render() {
