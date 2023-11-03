@@ -61,9 +61,12 @@ const btnWrapperEl = document.querySelectorAll("button-wrapper button");
 const resetBtnEl = document.querySelector("#reset-btn");
 const gridContainerEl = document.getElementById("grid-container");
 
+//adding event listener
 startBtnEl.addEventListener("click", startGame);
 resetBtnEl.addEventListener("click", reset);
 
+
+//definging utility functions
 function startGame() {
   console.log("starting game");
   gridContainerEl.innerHTML = "";
@@ -81,7 +84,6 @@ let shuffledArray = [];
 function shuffleImages(arr) {
   const generatedIndex = [];
   while (generatedIndex.length !== arr.length) {
-    console.log(generatedIndex.length);
     const generateNum = Math.floor(Math.random() * 36);
     if (!generatedIndex.includes(generateNum)) {
       shuffledArray.push(imagesArray[generateNum]);
@@ -92,18 +94,20 @@ function shuffleImages(arr) {
 }
 
 function gridMaker() {
+  //nested loop to creat grid
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numColumns; col++) {
+      //making main image card
       const gridItem = document.createElement("div");
       gridItem.classList.add("grid-item");
       gridItem.classList.add("card-front");
       gridItem.classList.add("flip");
-
+      // making cover card
       const gridItemContent = document.createElement("div");
       gridItemContent.classList.add("solid-color");
       gridItemContent.classList.add("card-front");
       gridItemContent.style.zIndex = "10";
-
+      //for finding the ID to compare cards
       const randomImagePath = shuffledArray[0];
       const imageIdLetters = randomImagePath.split("");
       const imageIdFinder = imageIdLetters.filter(function (imageIdLetter) {
@@ -114,23 +118,30 @@ function gridMaker() {
         gridItem.setAttribute("id", imageIdFinder[1]);
         gridItemContent.setAttribute("id", imageIdFinder[1]);
       }
-
+      //REMOVE FIRST ARRAY ITEM AFTER IT IS USED
       shuffledArray.shift();
+
+      //assigning  shuffled images to my cards
       gridItem.style.backgroundImage = `url('${randomImagePath}')`;
       gridItem.style.backgroundSize = "cover";
 
+      //adding elements to my HTML to show up
       gridContainerEl.appendChild(gridItem);
       gridItem.appendChild(gridItemContent);
+
+      //event listener for top cards
       gridItemContent.addEventListener("click", handleBtnClick);
     }
   }
 }
 
-//eventlistener
+//eventlistener for cards
+//card is solid top card to cover images
 
 function handleBtnClick(e) {
   const card = e.target;
   card.style.visibility = "hidden";
+  //for comparing purposes defind an emty array to hold values -> flipped cards
   if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
     card.classList.add("flipped");
     flippedCards.push(card);
@@ -144,9 +155,10 @@ function handleBtnClick(e) {
         score = parseInt(scoreStatEl.innerText) + 1;
         scoreStatEl.innerText = score;
         state.score = score;
-        console.log(state.score);
+        //matched cards to remin face up
         flippedCards[0].style.visibility = "hidden";
         flippedCards[1].style.visibility = "hidden";
+        //make them unavailable
         flippedCards[0].classList.remove("flipped");
         flippedCards[1].classList.remove("flipped");
         flippedCards = [];
@@ -156,6 +168,7 @@ function handleBtnClick(e) {
         scoreStatEl.innerText = score;
         state.score = score;
         console.log(score);
+        // to flip back give some time the user see the images
         setTimeout(() => {
           flippedCards[0].classList.remove("flipped");
           flippedCards[1].classList.remove("flipped");
@@ -198,6 +211,7 @@ function runGame() {
   for (let key in state) {
     state[key] = score;
     currentStats.push(score);
+    console.log(currentStats)
     if (score <= 0) {
       keepRunning = false;
       console.log("GAME OVER");
@@ -211,14 +225,12 @@ function render() {
   console.log("render should work");
   state.score = parseInt(scoreStatEl.innerText);
 }
-
 function gameOver() {
   console.log("game over works");
   clearInterval(timer);
   timerEl.innerText = "Game Over";
   setTimeout(reset, 5000);
 }
-
 function reset() {
   console.log("reset works");
   setTimeout(function () {
