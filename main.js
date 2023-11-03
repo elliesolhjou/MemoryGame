@@ -212,33 +212,6 @@ function render() {
   console.log("render should work");
   state.score = parseInt(scoreStatEl.innerText);
 }
-// Define a variable to keep track of the matched pairs
-let matchedPairs = 0;
-
-// Function to check if the game is won
-function checkWin() {
-  
-  console.log("yes")
-  if (matchedPairs === 18) { // Assuming totalPairs is the total number of pairs in the game
-    timerEl.innerText = "Winner!";
-    clearInterval(statusStat);
-  }
-
-}
-// When a pair is successfully matched, increment the matchedPairs count
-function onMatchedPair() {
- çonsole.log("yes")
-  matchedPairs++;
-  checkWin(); // Check if the game is won after each successful match
-}
-
-// In your code where you handle card matching, call onMatchedPair() when a pair is matched
-// Example:
-function handleCardMatch() {
-  // Your code to handle card matching
-  // ...
-  onMatchedPair(); // Call this when a pair is matched
-}
 
 function gameOver() {
   console.log("game over works");

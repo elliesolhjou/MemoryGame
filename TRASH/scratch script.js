@@ -531,3 +531,28 @@ function gridMaker() {
   backface-visibility: hidden;
   transform-style: preserve-3d;
 } */
+
+// Define a variable to keep track of the matched pairs
+let matchedPairs = 0;
+
+// Function to check if the game is won
+function checkWin() {
+  if (matchedPairs === totalPairs) { // Assuming totalPairs is the total number of pairs in the game
+    timerEl.innerText = "Winner!";
+    clearInterval(statusStat);
+  }
+}
+
+// When a pair is successfully matched, increment the matchedPairs count
+function onMatchedPair() {
+  matchedPairs++;
+  checkWin(); // Check if the game is won after each successful match
+}
+
+// In your code where you handle card matching, call onMatchedPair() when a pair is matched
+// Example:
+function handleCardMatch() {
+  // Your code to handle card matching
+  // ...
+  onMatchedPair(); // Call this when a pair is matched
+}
